@@ -27,6 +27,7 @@ Fundamentals Exercise 1: CLI
      8. Demonstrate removing:
          a. A file
          rm txtfile3.txt
+
          b. A folder
          rm -r Test_Folder\
 
