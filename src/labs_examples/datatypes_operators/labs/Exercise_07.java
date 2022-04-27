@@ -25,5 +25,8 @@ public class Exercise_07 {
 
         // write completed code here
 
+        double sec = days * 86400;
+        System.out.println("Total Seconds = " + sec);
+
     }
 }

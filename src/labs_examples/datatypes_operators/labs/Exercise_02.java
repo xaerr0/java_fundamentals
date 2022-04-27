@@ -24,6 +24,16 @@ public class Exercise_02 {
     public static void main(String[] args) {
 
         // write code here
+        int intVal = 10;
+        double d = intVal;
+        System.out.println(d);
+
+        double dVal = 10.5;
+        int q = (int) dVal;
+        System.out.println(q);
+
+        // information is lost in the double to int program
+
 
     }
 }

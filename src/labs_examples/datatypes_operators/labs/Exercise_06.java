@@ -14,5 +14,20 @@ public class Exercise_06 {
 
         // write code here
 
+        // volume
+
+        double radius = 3.14;
+        int height = 5;
+        float pi = 3.14f;
+        double vCyl = pi * radius * radius * height;
+        System.out.println(vCyl);
+
+        // surface area
+
+        double sArea = 2 * pi * radius * height + 2 * pi * radius * radius;
+        System.out.println(sArea);
+
+
+
     }
 }
