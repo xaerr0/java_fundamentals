@@ -24,6 +24,17 @@ public class Exercise_01 {
         int number = scanner.nextInt();
 
         // write completed code here
+        if (number % 2 == 0) {
+            System.out.println("Yor number is even!");
+        } else {
+            System.out.println("Your number is odd!");
+        }
+
+        String[] strings = new String[6];
+        System.out.println(strings.length);
+
 
     }
 }
+
+
