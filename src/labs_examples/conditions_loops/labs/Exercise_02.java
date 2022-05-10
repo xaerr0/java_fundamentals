@@ -24,32 +24,49 @@ public class Exercise_02 {
 
         // 2) prompt user
 
-        System.out.println("Enter your weekday number (1 - 7): ");
+//        System.out.println("Enter your weekday number (1 - 7): ");
 
         // 3) assign input to variable as int
 
-        int day = scanner.nextInt();
+//        int day = scanner.nextInt();
 
         // 4) write completed code here
+        boolean running = true;
 
-        if (day == 1) {
-            System.out.println("Monday");
-        } else if (day == 2) {
-            System.out.println("Tuesday");
-        } else if (day == 3) {
-            System.out.println("Wednesday");
-        } else if (day == 4) {
-            System.out.println("Thursday");
-        } else if (day == 5) {
-            System.out.println("Friday");
-        } else if (day == 6) {
-            System.out.println("Saturday");
-        } else if (day == 7) {
-            System.out.println("Sunday");
-        } else {
-            System.out.println("WRONG!");
+        while (running){
+            System.out.println("Enter your weekday number (1 - 7): ");
+            int day = scanner.nextInt();
+            if (day == 1) {
+                System.out.println("Monday");
+                running = false;
+            } else if (day == 2) {
+                System.out.println("Tuesday");
+//                running = false;
+            } else if (day == 3) {
+                System.out.println("Wednesday");
+//                running = false;
+            } else if (day == 4) {
+                System.out.println("Thursday");
+//                running = false;
+            } else if (day == 5) {
+                System.out.println("Friday");
+//                running = false;
+            } else if (day == 6) {
+                System.out.println("Saturday");
+//                running = false;
+            } else if (day == 7) {
+                System.out.println("Sunday");
+//                running = false;
+            } else {
+                System.out.println("WRONG!");
+            }
+            // if input is good
+            if (day <= 7 && day >= 1){
+            // exit the loop
+                running = false;
+            }
 
-    }
+        }
 
     }
 }
