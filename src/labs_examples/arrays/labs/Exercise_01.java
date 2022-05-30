@@ -11,5 +11,24 @@ package labs_examples.arrays.labs;
  */
 
 public class Exercise_01 {
+    public static void main(String[] args) {
+
+        int[] array = {1, 4, 53, 32, 2, 7, 12, 6, 8, 3};
+        int sum = 0;
+
+        for (int i : array)
+            sum += i;
+
+        int avg = sum / 10;
+
+
+        System.out.println("The sum is: " + sum);
+        System.out.println("The average is: " + avg);
+
+
+
+    }
+
+
 
 }
