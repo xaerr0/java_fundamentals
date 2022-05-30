@@ -1,5 +1,7 @@
 package labs_examples.arrays.labs;
 
+import java.util.ArrayList;
+
 /**
  *  ArrayLists
  *
@@ -10,4 +12,30 @@ package labs_examples.arrays.labs;
  *
  */
 public class Exercise_07 {
+
+    public static void main(String[] args) {
+
+        ArrayList<String> food = new ArrayList<>();
+
+        food.add("Hamburger");
+        food.add("Pizza");
+        food.add("Lasagna");
+        food.add("Ribs");
+
+        // remove
+        food.remove("Pizza");
+
+
+
+        // if the list is not empty
+        if(!food.isEmpty()){
+
+            for (String s : food){
+                System.out.println(s + " ");
+            }
+            // index of an object
+            System.out.println(food.indexOf("Ribs"));
+        }
+
+    }
 }

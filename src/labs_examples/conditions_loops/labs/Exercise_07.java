@@ -1,5 +1,7 @@
 package labs_examples.conditions_loops.labs;
 
+import java.util.Locale;
+
 /**
  * Conditions and Loops Exercise 7: First vowel
  *
@@ -12,31 +14,61 @@ package labs_examples.conditions_loops.labs;
  *              - ie: String vowels = "aeiou";
  *
  */
+import java.util.Scanner;
 
 public class Exercise_07 {
     public static void main(String[] args) {
 
-        String str = "Hello";
+        //find first vowel
+        //print out word and first vowel
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Type in a word and I'll find the first vowel: ");
+        String str = scan.nextLine();
+
+        String vowels = "aeiouAEIOU";
 
 
 
+//        //using .contains
+//        //if character is not a vowel
+//        if (str.length() > 0) {
+//            int charLocation = 0;
+//            while (charLocation < str.length() - 1 && !vowels.contains(Character.toString(str.charAt(charLocation)))) {
+//                charLocation++;
+//            }
+//
+//            if (vowels.contains(Character.toString(str.charAt(charLocation)))) {
+//                System.out.println(str);
+//                System.out.println(str.charAt(charLocation));
+//            } else {
+//                System.out.println("No vowels found!");
+//            }
+//        } else {
+//            System.out.println("Empty string given!");
+//        }
+
+        //Alternative approach
+
+        int vowelCount = 0;
+        int charIndex = 0;
+        while (vowelCount == 0) {
+            char ch = str.charAt(charIndex);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' ||
+                    ch == 'u') {
+            } else {
+                if (charIndex < vowelCount);
+            }
+            vowelCount++;
 
 
+            charIndex++;
 
+
+            System.out.println(str);
+            System.out.println(str.charAt(charIndex));
         }
 
-
-
-
-        }
-
-
-
-
-
-
-
-
-
-
-
+    }
+}

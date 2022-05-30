@@ -10,4 +10,23 @@ package labs_examples.arrays.labs;
 
 public class Exercise_04 {
 
+    public static void main(String[] args) {
+
+        int[][] dogs = new int[3][];
+
+
+        for (int i = 0; i < dogs.length; i++) {
+            for (int j = 0; j < dogs[i].length; j++) {
+                dogs[i][j] = i * j;
+                System.out.println(dogs);
+            }
+        }
+
+
+    }
 }
+
+
+
+
+
