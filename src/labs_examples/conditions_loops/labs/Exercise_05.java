@@ -17,13 +17,14 @@ package labs_examples.conditions_loops.labs;
 
 public class Exercise_05 {
     public static void main(String[] args) {
-        int lower = 4;
-        double upper = 7;
+        int lower = 1;
+        double upper = 100;
         int sum = 0;
 
 
-        for(int i = lower; i <= upper; ++i)
-           sum += i;
+        for(int i = lower; i <= upper; ++i) {
+            sum += i;
+        }
         System.out.println("Your sum is " + sum);
         System.out.println("Your average is " + sum / upper);
     }

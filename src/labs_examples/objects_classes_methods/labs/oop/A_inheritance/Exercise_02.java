@@ -3,7 +3,7 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance;
 /**
  * Run the class below and study the output. What prints and why?
  *
- * Your answer:
+ * Your answer: 10 prints because the extends keyword does not override.
  *
  */
 class A {
@@ -12,6 +12,7 @@ class A {
 
 class B extends A{
     int i = 20;
+
 }
 
 public class Exercise_02 {
@@ -20,5 +21,7 @@ public class Exercise_02 {
         A a = new B();
 
         System.out.println(a.i);
+
+
     }
 }

@@ -208,7 +208,7 @@ public class CustomHashMap<K, V> {
  * A Key-Value Pair
  */
  class Entry<K, V> {
-    private K key;
+    private final K key;
     private V value;
     // it means this is a LinkedList
     Entry next = null;

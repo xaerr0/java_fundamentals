@@ -40,7 +40,7 @@ class Priority implements Runnable {
 }
 
 class PriorityDemo {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         Priority mt1 = new Priority("High Priority");
         Priority mt2 = new Priority("Low Priority");
 

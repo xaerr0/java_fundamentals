@@ -4,7 +4,7 @@ package labs_examples.exception_handling.examples;
 class UseFinally {
     public static void genException(int what) {
         int t;
-        int nums[] = new int[2];
+        int[] nums = new int[2];
 
         System.out.println("Receiving " + what);
         try {
@@ -35,7 +35,7 @@ class UseFinally {
 }
 
 class FinallyDemo {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
 
         for(int i=0; i < 3; i++) {
             UseFinally.genException(i);

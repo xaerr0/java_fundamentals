@@ -31,11 +31,7 @@ public class BuiltInFunctionalInterfaces {
         System.out.println(length.test("programming is so cool!"));
 
         BiPredicate<Integer, String> longerThan = (i, s) -> {
-            if (s.length() > i){
-                return true;
-            } else {
-                return false;
-            }
+            return s.length() > i;
         };
 
         System.out.println(longerThan.test(5, "hello world"));

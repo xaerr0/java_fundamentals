@@ -13,12 +13,14 @@ public class Exercise_04 {
     public static void main(String[] args) {
 
         int[][] dogs = new int[3][];
+        dogs[0] = new int[]{1, 2, 3};
+        dogs[1] = new int[]{4, 5, 6, 7};
+        dogs[2] = new int[]{4, 5};
 
 
-        for (int i = 0; i < dogs.length; i++) {
-            for (int j = 0; j < dogs[i].length; j++) {
-                dogs[i][j] = i * j;
-                System.out.println(dogs);
+        for (int[] dog : dogs) {
+            for (int i : dog) {
+                System.out.println(i);
             }
         }
 

@@ -2,7 +2,7 @@ package labs_examples.objects_classes_methods.examples.advanced;
 
 // A Queue2 class for characters.
 class Queue2 {
-    private char q[]; // this array holds the Queue2
+    private final char[] q; // this array holds the Queue2
     private int putloc, getloc; // the put and get indices
 
     // Construct an empty Queue2 given its size.
@@ -23,7 +23,7 @@ class Queue2 {
     }
 
     // Construct a Queue2 with initial values.
-    Queue2(char a[]) {
+    Queue2(char[] a) {
         putloc = 0;
         getloc = 0;
         q = new char[a.length];
@@ -54,11 +54,11 @@ class Queue2 {
 
 // Demonstrate the Queue2 class.
 class QDemo2 {
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // construct 10-element empty Queue2
         Queue2 q1 = new Queue2(10);
 
-        char name[] = {'T', 'o', 'm'};
+        char[] name = {'T', 'o', 'm'};
         // construct Queue2 from array
         Queue2 q2 = new Queue2(name);
 

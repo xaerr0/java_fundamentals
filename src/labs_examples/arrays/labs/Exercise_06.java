@@ -24,23 +24,23 @@ public class Exercise_06 {
         // Question: in the for loop below, why do we divide "nums.length" by 2?
         // Answer: Because we only need to swap half the length, if we swap the whole length, we will swap the length twice.
 
-//        for(int i = 0; i < nums.length / 2; i++){
-//            // swap elements at indexes in array
-//            // you have two indices readily available for you to use "i" (which increments) and "nums.length"
-//            // you've also got this "temp" variable you can use to hold a value temporarily
-//
-//            temp = nums[i];
-//            int swap = nums.length - i - 1;
-//            nums[i] = nums[swap];
-//            nums[swap] = temp;
-//        }
+        for(int i = 0; i < nums.length / 2; i++){
+            // swap elements at indexes in array
+            // you have two indices readily available for you to use "i" (which increments) and "nums.length"
+            // you've also got this "temp" variable you can use to hold a value temporarily
 
-        // TODO: solve using a second array
+            temp = nums[i];
+            int swap = nums.length - i - 1;
+            nums[i] = nums[swap];
+            nums[swap] = temp;
+        }
+
+//        // TODO: solve using a second array
         for (int i : reverse){
             System.out.println(i + " | ");
         }
-
-
+//
+//
         System.out.print("Contents of array after for loop - ");
         // print each element of the array to verify reverse order
         for(int j : nums){

@@ -16,9 +16,9 @@ public class Exercise_01 {
         int[] array = {1, 4, 53, 32, 2, 7, 12, 6, 8, 3};
         int sum = 0;
 
-        for (int i : array)
+        for (int i : array) {
             sum += i;
-
+        }
         int avg = sum / 10;
 
 

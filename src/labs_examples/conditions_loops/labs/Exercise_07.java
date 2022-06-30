@@ -30,7 +30,6 @@ public class Exercise_07 {
         String vowels = "aeiouAEIOU";
 
 
-
 //        //using .contains
 //        //if character is not a vowel
 //        if (str.length() > 0) {
@@ -55,20 +54,17 @@ public class Exercise_07 {
         int charIndex = 0;
         while (vowelCount == 0) {
             char ch = str.charAt(charIndex);
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' ||
-                    ch == 'u') {
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                vowelCount++;
             } else {
-                if (charIndex < vowelCount);
+                charIndex++;
             }
-            vowelCount++;
-
-
-            charIndex++;
-
-
-            System.out.println(str);
-            System.out.println(str.charAt(charIndex));
         }
+
+        System.out.println(str);
+        System.out.println(str.charAt(charIndex));
+
+
 
     }
 }
