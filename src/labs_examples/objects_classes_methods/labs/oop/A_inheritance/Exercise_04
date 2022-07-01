@@ -1,6 +1,8 @@
 
 Without running the code below, please tell me what it will print.
 
+Answer: Because Parent c is initialized as a new Child.
+
 
 
 public class InheritanceTest

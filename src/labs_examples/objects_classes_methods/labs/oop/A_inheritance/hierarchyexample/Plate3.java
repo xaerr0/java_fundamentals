@@ -2,8 +2,8 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance.hierarchyex
 
 public class Plate3 extends Plate2 {
 
-    private String meat3;
-    private String meat4;
+    private final String meat3;
+    private final String meat4;
 
     public String getMeat3() {
         return meat3;

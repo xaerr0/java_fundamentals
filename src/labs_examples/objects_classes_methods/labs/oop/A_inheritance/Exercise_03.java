@@ -1,11 +1,13 @@
 package labs_examples.objects_classes_methods.labs.oop.A_inheritance;
 
+
 /**
  * Why does the output print in the order it does?
  *
  * You answer:
  *
  */
+//TODO: Review with Jared
 
 class A_1 {
     public A_1()
@@ -29,8 +31,9 @@ class C_1 extends B_1 {
 }
 
 public class Exercise_03 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         C_1 c = new C_1();
+        System.out.println("test");
+
     }
 }

@@ -11,7 +11,7 @@ public class MainPlane {
         System.out.println("My plane has a crew size of " + myCrew.getCrewSize() + " and " + myCrew.isFullyStaffed() +
         " it is fully staffed");
 
-        System.out.println(seatCapacity.toString());
+        System.out.println(seatCapacity);
     }
 
 

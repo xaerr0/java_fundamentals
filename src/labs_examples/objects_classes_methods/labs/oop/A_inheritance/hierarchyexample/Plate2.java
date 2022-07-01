@@ -2,8 +2,8 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance.hierarchyex
 
 public class Plate2 extends Plate1 {
 
-    private String meat2;
-    private String side2;
+    private final String meat2;
+    private final String side2;
 
     @Override
     public String toString() {

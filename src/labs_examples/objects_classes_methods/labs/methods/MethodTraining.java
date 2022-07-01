@@ -194,7 +194,7 @@ public class MethodTraining {
             System.out.println("Original Array");
         for(int j: intArray) {
             System.out.print(j + " | ");
-            System.out.println("");
+            System.out.println();
         }
         for (int i = 0; i < intArray.length / 2; i++) {
             temp = intArray[i];

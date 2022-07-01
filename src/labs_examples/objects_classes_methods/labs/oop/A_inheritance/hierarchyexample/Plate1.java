@@ -2,8 +2,8 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance.hierarchyex
 
 public class Plate1 {
 
-    private String meat1;
-    private String side1;
+    private final String meat1;
+    private final String side1;
 
     public Plate1(String meat1, String side1) {
         this.meat1 = meat1;

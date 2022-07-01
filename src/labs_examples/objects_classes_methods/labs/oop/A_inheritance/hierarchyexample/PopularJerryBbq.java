@@ -9,9 +9,9 @@ public class PopularJerryBbq {
         Plate3 bigginBigPlate = new Plate3("Pulled Pork", "Corn Bread", "Ribs", "Mackin Cheez",
                 "Brisket", "Sausage");
 
-        System.out.println("Big Boi Plate: " + bigBoiPlate.toString());
-        System.out.println("Bigga' Boi Plate: " + biggaBoiPlate.toString());
-        System.out.println("Biggin' Big Plate: " + bigginBigPlate.toString());
+        System.out.println("Big Boi Plate: " + bigBoiPlate);
+        System.out.println("Bigga' Boi Plate: " + biggaBoiPlate);
+        System.out.println("Biggin' Big Plate: " + bigginBigPlate);
 
 
 

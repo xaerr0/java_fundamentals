@@ -1,7 +1,7 @@
 
 Without running the code below, please tell me what will print. Why?
 
-
+Answer: Both "Parent called" and "Child called" because 
 
 
 public class InheritanceTest
