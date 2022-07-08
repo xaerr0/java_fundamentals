@@ -1,21 +1,43 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 public class Card {
-    public char[] suit = new char[]{'♠', '♦', '♥', '♣'};
-    public int[] cardValue = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
+    private char suit;
+    private Rank rank;
 
+    @Override
+    public String toString() {
+        return "Card{suit=" + suit + ", rank=" + rank + '}'; }
 
-
-
-
-    public Card() {
+    public Card(char suit, Rank rank) {
         this.suit = suit;
-        this.cardValue = cardValue;
+        this.rank = rank;
+    }
 
+    public char getSuit() {
+        return suit;
+    }
 
+    public void setSuit(char suit) {
+        this.suit = suit;
+    }
+
+    public Rank getRank() {
+        return rank;
+    }
+
+    public void setRank(Rank rank) {
+        this.rank = rank;
     }
 
 
-
-
 }
+
+
+
+
+
+
+
+
+
+

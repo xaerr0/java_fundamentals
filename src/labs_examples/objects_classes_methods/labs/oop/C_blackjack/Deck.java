@@ -1,24 +1,14 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack;
 
 import java.util.ArrayList;
-
-public class Deck extends Card {
-    Card[] cards = new Card[52];
-    ArrayList<Integer> usedCards = new ArrayList<>();
-
-    public static void main(String[] args) {
-        Deck myDeck = new Deck();
-        System.out.println(myDeck);
-
-    }
+import java.util.Random;
 
 
-    public Card[] getCards() {
-        return cards;
-    }
+public class Deck {
+    private ArrayList<Integer> usedCards = new ArrayList<>();
+    private ArrayList<Card> cards = new ArrayList<>();
 
-    public void setCards(Card[] cards) {
-        this.cards = cards;
+    public Deck() {
     }
 
     public ArrayList<Integer> getUsedCards() {
@@ -29,27 +19,44 @@ public class Deck extends Card {
         this.usedCards = usedCards;
     }
 
-    private void Deck() {
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
 
-        int counter = 0;
+    public void setCards(ArrayList<Card> cards) {
+        this.cards = cards;
+    }
 
-        for (int i = 0; i < suit.length; i++) {
-            for (int j = 0; j < cardValue.length; j++){
-                char theSuit = suit[i];
-                int theCardValue = cardValue[j];
-                cards[counter] = new Card();
-                counter++;
+    @Override
+    public String toString() {
+        return "Deck{" + "usedCards=" + usedCards + ", cards=" + cards + '}';
+    }
+
+    public void createFullDeck() {
+
+        for (Suit suit : Suit.values()) {
+            for (Rank cardValue : Rank.values()) {
+                cards.add(new Card(suit.suit, cardValue));
+
             }
-            System.out.println(suit);
-            System.out.println(cardValue);
-
-
         }
+    }
+
+    public Card deal(){
+        Random r = new Random();
+        int i;
+        do{
+            i = r.nextInt(cards.size());
+        } while (usedCards.contains(i));
+
+        Card card = cards.get(i);
+        usedCards.add(i);
+
+        return card;
+
+
+
 
 
     }
-
-
-
-
 }
