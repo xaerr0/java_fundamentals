@@ -8,6 +8,7 @@ public class Deck {
     private ArrayList<Integer> usedCards = new ArrayList<>();
     private ArrayList<Card> cards = new ArrayList<>();
 
+
     public Deck() {
     }
 
@@ -42,10 +43,11 @@ public class Deck {
         }
     }
 
-    public Card deal(){
+    public  Card deal() {
+
         Random r = new Random();
         int i;
-        do{
+        do {
             i = r.nextInt(cards.size());
         } while (usedCards.contains(i));
 
@@ -55,8 +57,8 @@ public class Deck {
         return card;
 
 
-
-
-
     }
+
 }
+
+

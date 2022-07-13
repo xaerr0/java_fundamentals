@@ -4,7 +4,36 @@ import java.util.ArrayList;
 
 public class Hand {
 
-    ArrayList<Card> cards;
+    private ArrayList<Card> cards = new ArrayList<>();
     int handValue;
 
+    public ArrayList<Card> getCards() {
+        return cards;
+    }
+
+
+    public int getHandValue() {
+        return handValue;
+    }
+
+    public Hand() {
+        cards = new ArrayList<>();
+
+    }
+
+
+    public int handValue() {
+        int value = 0;
+        int aceCount = 0;
+
+        for (Card card : cards) {
+
+        }
+    return handValue;
+
+    }
+
+
 }
+
+

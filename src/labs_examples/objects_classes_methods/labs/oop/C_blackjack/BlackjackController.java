@@ -7,6 +7,7 @@ public class BlackjackController {
     public static void main(String[] args) {
 
         Deck deck = new Deck();
+        Player player1 = new Player();
 
         deck.createFullDeck();
         System.out.println(deck);
@@ -16,6 +17,8 @@ public class BlackjackController {
         }
         deck.getUsedCards().sort(Comparator.naturalOrder());
         System.out.println(deck.getUsedCards());
+
+        System.out.println(player1.getHand().getCards().add(deck.deal()));
 
 
 
