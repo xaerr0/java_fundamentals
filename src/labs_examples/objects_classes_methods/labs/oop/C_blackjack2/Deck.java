@@ -7,9 +7,23 @@ import java.util.Random;
 public class Deck {
     private ArrayList<Card> deck;
 
-    public Deck() {
+//    public Deck() {
+//        deck = new ArrayList<>();
+//    }
+
+    public Deck (){
         deck = new ArrayList<>();
-    }
+            //Loop through all suits
+            for(Suit suit : Suit.values()){
+                //Loop through all ranks
+                for(Rank rank : Rank.values()){
+                    //add a new card containing each suit and rank = 52 cards
+                    deck.add(new Card(suit, rank));
+                }
+            }
+            shuffle();
+        }
+
 
     public void addCard(Card card){
         deck.add(card);
@@ -43,18 +57,6 @@ public class Deck {
 
     }
 
-    public Deck (boolean makeDeck){
-        deck = new ArrayList<>();
-        if(makeDeck){
-            //Loop through all suits
-            for(Suit suit : Suit.values()){
-                //Loop through all ranks
-                for(Rank rank : Rank.values()){
-                    //add a new card containing each suit and rank = 52 cards
-                    deck.add(new Card(suit, rank));
-                }
-            }
-        }
-    }
+
 
 }

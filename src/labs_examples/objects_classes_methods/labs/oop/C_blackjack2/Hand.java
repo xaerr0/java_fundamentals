@@ -5,13 +5,23 @@ import java.util.ArrayList;
 public class Hand {
 
     private ArrayList<Card> hand;
+    private int handValue;
 
     public Hand() {
         hand = new ArrayList<Card>();
     }
 
+    public int getHandValue() {
+        return handValue;
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand;
+    }
+
     public void takeFromDeck(Deck deck) {
         hand.add(deck.takeCard());
+        calculateHandValue();
 
     }
 
@@ -24,10 +34,22 @@ public class Hand {
         return output;
     }
 
-    public int handValue(){
-        int value = 0;
+    public void calculateHandValue(){
+        handValue = 0;
         int aceCount = 0;
-        return handValue();
+        //TODO Figure out how to handle Aces
+        for(Card card : hand){
+            handValue += card.getValue();
+        }
+
     }
+    public boolean isBust(){
+        if(handValue > 21){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 
 }
