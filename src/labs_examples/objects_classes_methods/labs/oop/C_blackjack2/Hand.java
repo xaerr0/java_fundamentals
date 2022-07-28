@@ -51,5 +51,15 @@ public class Hand {
         }
     }
 
+    public boolean hasBlackjack(){
+        if (this.handValue == 21) {
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
 
 }

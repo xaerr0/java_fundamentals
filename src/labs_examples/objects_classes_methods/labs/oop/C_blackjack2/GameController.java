@@ -26,18 +26,18 @@ public class GameController {
 
         //Test
         Deck testDeck = new Deck();
-        Hand testHand = new Hand();
+        Hand Hand = new Hand();
 
         testDeck.shuffle();
-        testHand.takeFromDeck(testDeck);
-        testHand.takeFromDeck(testDeck);
-        testHand.takeFromDeck(testDeck);
-        System.out.println(testHand);
+        Hand.takeFromDeck(testDeck);
+        Hand.takeFromDeck(testDeck);
+        Hand.takeFromDeck(testDeck);
+        System.out.println(Hand);
         System.out.println(testDeck);
 
 
-        System.out.println(testHand.getHand());
-        System.out.println(testHand.getHandValue());
+        System.out.println(Hand.getHand());
+        System.out.println(Hand.getHandValue());
     }
 
 

@@ -4,4 +4,16 @@ public class Player {
     private Hand hand;
     private String name;
     private int potValue;
+
+
+
+    public boolean computerAI() {
+        if (hand.getHandValue() < 16)
+
+            return true;
+
+        return false;
+    }
 }
+
+
