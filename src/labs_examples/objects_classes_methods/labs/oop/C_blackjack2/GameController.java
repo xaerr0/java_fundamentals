@@ -5,6 +5,16 @@ public class GameController {
     public static void main(String[] args) {
         //Intro
         System.out.println("Welcome to Blackjack!");
+        Player player = new Player();
+
+        player.newUser();
+
+        Deck fullDeck = new Deck();
+
+        fullDeck.shuffle();
+
+        player.handleBets(player);
+
 
 
 //        Deck testDeck = new Deck();
@@ -16,28 +26,28 @@ public class GameController {
 //        testDeck.addCard(Card2);
 //        testDeck.addCard(Card3);
 
-        Deck fullDeck = new Deck();
+
 //
 //        System.out.println(testDeck);
 //
-        fullDeck.shuffle();
+
 //        System.out.println(fullDeck);
 
 
         //Test
-        Deck testDeck = new Deck();
-        Hand Hand = new Hand();
-
-        testDeck.shuffle();
-        Hand.takeFromDeck(testDeck);
-        Hand.takeFromDeck(testDeck);
-        Hand.takeFromDeck(testDeck);
-        System.out.println(Hand);
-        System.out.println(testDeck);
-
-
-        System.out.println(Hand.getHand());
-        System.out.println(Hand.getHandValue());
+//        Deck testDeck = new Deck();
+//        Hand Hand = new Hand();
+//
+//        testDeck.shuffle();
+//        Hand.takeFromDeck(testDeck);
+//        Hand.takeFromDeck(testDeck);
+//        Hand.takeFromDeck(testDeck);
+//        System.out.println(Hand);
+//        System.out.println(testDeck);
+//
+//
+//        System.out.println(Hand.getHand());
+//        System.out.println(Hand.getHandValue());
     }
 
 

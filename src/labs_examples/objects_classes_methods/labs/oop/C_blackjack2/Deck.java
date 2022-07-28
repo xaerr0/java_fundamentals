@@ -34,6 +34,10 @@ public class Deck {
         Collections.shuffle(deck);
     }
 
+    public void deal(Player player, Deck deck){
+
+    }
+
     public Card takeCard(){
 
         Card takeCard = new Card(deck.get(0));

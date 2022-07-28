@@ -1,11 +1,49 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack2;
 
+import java.util.Scanner;
+
 public class Player {
     private Hand hand;
     private String name;
     private int potValue;
+    private int bet;
 
 
+
+    public void newUser(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("What's your name?");
+        this.name = scanner.next();
+
+        System.out.println("Hello " + this.name + "! How much money would you like to start with?");
+        this.potValue = scanner.nextInt();
+    }
+
+    public void handleBets(Player player){
+    Scanner scanner = new Scanner (System.in);
+        System.out.println("\nHow much would you like to bet?");
+        System.out.println("You currently have " + potValue );
+
+        int bet = scanner.nextInt();
+
+        if (bet <= potValue){
+
+            if (bet == potValue){
+                System.out.println("Are you sure you want to go all in?");
+
+            }
+            player.setBet(bet);
+
+        }
+    }
+
+    public int getBet() {
+        return bet;
+    }
+
+    public void setBet(int bet) {
+        this.bet = bet;
+    }
 
     public boolean computerAI() {
         if (hand.getHandValue() < 16)
@@ -13,6 +51,8 @@ public class Player {
             return true;
 
         return false;
+
+
     }
 }
 
