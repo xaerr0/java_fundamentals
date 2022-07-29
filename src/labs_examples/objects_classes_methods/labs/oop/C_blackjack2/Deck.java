@@ -2,7 +2,6 @@ package labs_examples.objects_classes_methods.labs.oop.C_blackjack2;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 public class Deck {
     private ArrayList<Card> deck;
@@ -34,7 +33,8 @@ public class Deck {
         Collections.shuffle(deck);
     }
 
-    public void deal(Player player, Deck deck){
+    public void dealFirst(Player player, Deck deck){
+        takeCard();
 
     }
 

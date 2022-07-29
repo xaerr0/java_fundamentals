@@ -6,14 +6,31 @@ public class GameController {
         //Intro
         System.out.println("Welcome to Blackjack!");
         Player player = new Player();
+        Player computerAI = new Player();
+        Deck fullDeck = new Deck();
+        Deck usedDeck = new Deck();
+        Hand hand = new Hand();
 
         player.newUser();
 
-        Deck fullDeck = new Deck();
+
 
         fullDeck.shuffle();
+        //method to take bets
+//        player.handleBets(player);
 
-        player.handleBets(player);
+
+        hand.takeFromDeck(fullDeck);
+        hand.takeFromDeck(fullDeck);
+        System.out.println(hand.getHand());
+        System.out.println(hand.getHandValue());
+//        fullDeck.dealFirst(player, usedDeck);
+//        fullDeck.dealFirst(computerAI, usedDeck);
+//        fullDeck.dealFirst(player, usedDeck);
+//        fullDeck.dealFirst(computerAI, usedDeck);
+
+
+
 
 
 

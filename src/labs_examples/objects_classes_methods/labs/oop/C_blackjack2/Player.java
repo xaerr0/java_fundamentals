@@ -9,8 +9,7 @@ public class Player {
     private int bet;
 
 
-
-    public void newUser(){
+    public void newUser() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("What's your name?");
         this.name = scanner.next();
@@ -19,23 +18,34 @@ public class Player {
         this.potValue = scanner.nextInt();
     }
 
-    public void handleBets(Player player){
-    Scanner scanner = new Scanner (System.in);
+    public void handleBets(Player player) {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("\nHow much would you like to bet?");
-        System.out.println("You currently have " + potValue );
+        System.out.println("You currently have " + potValue);
 
         int bet = scanner.nextInt();
 
-        if (bet <= potValue){
+        if (bet <= potValue) {
 
-            if (bet == potValue){
-                System.out.println("Are you sure you want to go all in?");
-
+            if (bet == potValue) {
+                System.out.println("Nice! Good luck!");
+//                String userInput = scanner.nextLine();
+//                if (userInput.equalsIgnoreCase("yes"));
+//                System.out.println("Nice! Good luck!");
             }
             player.setBet(bet);
+        } else {
+            do {
+                System.out.println("\nPlease bet less than $" + potValue);
+                System.out.println("\nHow much would you like to bet?");
+                bet = scanner.nextInt();
+            } while (bet > potValue);
 
+
+            player.setBet(bet);
         }
     }
+
 
     public int getBet() {
         return bet;
