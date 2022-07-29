@@ -7,8 +7,6 @@ public class Hand {
     private ArrayList<Card> hand;
     private int handValue;
     private Player computerAI;
-    private ArrayList<Card> card;
-    private Card dealtCard;
 
     public Player getComputerAI() {
         return computerAI;
@@ -26,18 +24,16 @@ public class Hand {
         return hand;
     }
 
-    public Card getDealtCard(int index) {
-        return dealtCard;
-    }
-
-    public Card takeFromDeck(Player player, Deck deck) {
+    public void takeFromDeck(Deck deck) {
         hand.add(deck.takeCard());
         calculateHandValue();
-        return dealtCard;
+
     }
 
-    public Card getCard(int index){
-        return card.get(index);
+    public Card getCard(int cardNum){
+        Card c = hand.get(cardNum - 1);
+        return c;
+
     }
 
     @Override

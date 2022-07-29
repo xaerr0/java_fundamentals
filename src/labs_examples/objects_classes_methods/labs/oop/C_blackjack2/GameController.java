@@ -6,10 +6,9 @@ public class GameController {
         //Intro
         System.out.println("Welcome to Blackjack!");
         Player player = new Player();
-        Player computerAI = new Player();
+        Player dealer = new Player();
         Deck fullDeck = new Deck();
-        Hand hand = new Hand();
-        Card dealtCard;
+
 
 
 //        player.newUser();
@@ -20,24 +19,22 @@ public class GameController {
         //method to take bets
 //        player.handleBets(player);
 
-        hand.getCard(1);
-        hand.takeFromDeck(player, fullDeck);
-        System.out.println("Your first card is" + hand.getDealtCard(2));
-        hand.takeFromDeck(player, fullDeck);
-        System.out.println("Your second card is" + hand.getCard(1));
+        //TODO Show 1 card at a time (First card THEN ONLY second card)
+        player.getHand().takeFromDeck(fullDeck);
+        System.out.println("Your first card is " + player.getHand().getCard(1));
+        player.getHand().takeFromDeck(fullDeck);
+        System.out.println("Your second card is " + player.getHand().getCard(2));
+        System.out.println("Your total is " + player.getHand().getHandValue());
 
-        //TODO Have 1 card dealt at a time, (First show Card 1, then ONLY Card 2)
-//        dealtCard = hand.takeFromDeck(player, fullDeck);
-//        System.out.println("Your first card is" + dealtCard(1));
-//
-//
-//
-//        System.out.println("Your total is " + hand.getHandValue());
+        dealer.getHand().takeFromDeck(fullDeck);
+//        computerAI.getHand().takeFromDeck(fullDeck);
+//        System.out.println("Your total is " + p.getHandValue());
+
 //        hand.takeFromDeck(computerAI, fullDeck);
 //        hand.takeFromDeck(player, fullDeck);
 //        hand.takeFromDeck(computerAI, fullDeck);
 //
-//        System.out.println(hand.getHandValue());
+
 
 
 
