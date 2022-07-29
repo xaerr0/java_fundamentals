@@ -6,6 +6,13 @@ public class Hand {
 
     private ArrayList<Card> hand;
     private int handValue;
+    private Player computerAI;
+    private ArrayList<Card> card;
+    private Card dealtCard;
+
+    public Player getComputerAI() {
+        return computerAI;
+    }
 
     public Hand() {
         hand = new ArrayList<Card>();
@@ -19,10 +26,18 @@ public class Hand {
         return hand;
     }
 
-    public void takeFromDeck(Deck deck) {
+    public Card getDealtCard(int index) {
+        return dealtCard;
+    }
+
+    public Card takeFromDeck(Player player, Deck deck) {
         hand.add(deck.takeCard());
         calculateHandValue();
+        return dealtCard;
+    }
 
+    public Card getCard(int index){
+        return card.get(index);
     }
 
     @Override

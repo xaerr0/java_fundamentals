@@ -8,10 +8,11 @@ public class GameController {
         Player player = new Player();
         Player computerAI = new Player();
         Deck fullDeck = new Deck();
-        Deck usedDeck = new Deck();
         Hand hand = new Hand();
+        Card dealtCard;
 
-        player.newUser();
+
+//        player.newUser();
 
 
 
@@ -19,11 +20,28 @@ public class GameController {
         //method to take bets
 //        player.handleBets(player);
 
+        hand.getCard(1);
+        hand.takeFromDeck(player, fullDeck);
+        System.out.println("Your first card is" + hand.getDealtCard(2));
+        hand.takeFromDeck(player, fullDeck);
+        System.out.println("Your second card is" + hand.getCard(1));
 
-        hand.takeFromDeck(fullDeck);
-        hand.takeFromDeck(fullDeck);
-        System.out.println(hand.getHand());
-        System.out.println(hand.getHandValue());
+        //TODO Have 1 card dealt at a time, (First show Card 1, then ONLY Card 2)
+//        dealtCard = hand.takeFromDeck(player, fullDeck);
+//        System.out.println("Your first card is" + dealtCard(1));
+//
+//
+//
+//        System.out.println("Your total is " + hand.getHandValue());
+//        hand.takeFromDeck(computerAI, fullDeck);
+//        hand.takeFromDeck(player, fullDeck);
+//        hand.takeFromDeck(computerAI, fullDeck);
+//
+//        System.out.println(hand.getHandValue());
+
+
+
+
 //        fullDeck.dealFirst(player, usedDeck);
 //        fullDeck.dealFirst(computerAI, usedDeck);
 //        fullDeck.dealFirst(player, usedDeck);

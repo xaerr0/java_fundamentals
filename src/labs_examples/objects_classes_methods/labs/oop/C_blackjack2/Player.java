@@ -55,15 +55,15 @@ public class Player {
         this.bet = bet;
     }
 
-    public boolean computerAI() {
-        if (hand.getHandValue() < 16)
-
-            return true;
-
-        return false;
-
-
-    }
+//    public boolean computerAI() {
+//        if (hand.getHandValue() < 16)
+//
+//            return true;
+//
+//        return false;
+//
+//
+//    }
 }
 
 
