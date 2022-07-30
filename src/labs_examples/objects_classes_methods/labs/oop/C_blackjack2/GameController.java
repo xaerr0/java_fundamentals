@@ -19,14 +19,27 @@ public class GameController {
         //method to take bets
 //        player.handleBets(player);
 
-        //TODO Show 1 card at a time (First card THEN ONLY second card)
+        player.getHand().takeFromDeck(fullDeck);
         player.getHand().takeFromDeck(fullDeck);
         System.out.println("Your first card is " + player.getHand().getCard(1));
-        player.getHand().takeFromDeck(fullDeck);
         System.out.println("Your second card is " + player.getHand().getCard(2));
-        System.out.println("Your total is " + player.getHand().getHandValue());
+
+        player.getHand().hasBlackjack();
+
 
         dealer.getHand().takeFromDeck(fullDeck);
+        dealer.getHand().takeFromDeck(fullDeck);
+        System.out.println("\nMy first card is \" HIDDEN \"");
+        System.out.println("My second card is " + dealer.getHand().getCard(2));
+        dealer.getHand().hasBlackjack();
+        dealer.getHand().isBust();
+
+        System.out.println("\nYour total is " + player.getHand().getHandValue());
+        player.getHand().hitOrStay(fullDeck);
+        player.getHand().isBust();
+
+
+
 //        computerAI.getHand().takeFromDeck(fullDeck);
 //        System.out.println("Your total is " + p.getHandValue());
 

@@ -1,6 +1,7 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack2;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Hand {
 
@@ -27,8 +28,34 @@ public class Hand {
     public void takeFromDeck(Deck deck) {
         hand.add(deck.takeCard());
         calculateHandValue();
-
     }
+
+    public void hitOrStay(Deck deck) {
+        int index = 3;
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\nWould you like to 1) Hit or 2) Stay?");
+        int choice = scanner.nextInt();
+        //If neither 1 nor 2 is entered
+        if (choice != 1 && choice != 2){
+            System.out.println("Please enter either 1) to Hit or 2) to Stay");
+        }else
+        //player hits
+        if (choice == 1) {
+            hand.add(deck.takeCard());
+            calculateHandValue();
+            System.out.println("Your new card is " + getCard(index));
+
+            System.out.println("Your total is " + getHandValue());
+//        while (handValue < 21)
+        }
+        //player stays
+        if (choice == 2){
+            calculateHandValue();
+            System.out.println("Your total is " + getHandValue());
+        }
+        }
+
+
 
     public Card getCard(int cardNum){
         Card c = hand.get(cardNum - 1);
@@ -56,6 +83,7 @@ public class Hand {
     }
     public boolean isBust(){
         if(handValue > 21){
+            System.out.println("\nYou Bust!");
             return true;
         }else{
             return false;
@@ -64,11 +92,13 @@ public class Hand {
 
     public boolean hasBlackjack(){
         if (this.handValue == 21) {
+            System.out.println("Blackjack! You win!");
             return true;
         }else{
             return false;
         }
     }
+
 
 
 
