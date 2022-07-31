@@ -30,29 +30,34 @@ public class Hand {
         calculateHandValue();
     }
 
-    public void hitOrStay(Deck deck) {
+    public boolean hitOrStay(Deck deck) {
         int index = 3;
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nWould you like to 1) Hit or 2) Stay?");
         int choice = scanner.nextInt();
         //If neither 1 nor 2 is entered
-        if (choice != 1 && choice != 2){
+        if (choice != 1 && choice != 2)
             System.out.println("Please enter either 1) to Hit or 2) to Stay");
-        }else
         //player hits
-        if (choice == 1) {
+        else if (choice == 1) {
+            while (handValue < 21){
+
             hand.add(deck.takeCard());
             calculateHandValue();
+
             System.out.println("Your new card is " + getCard(index));
 
             System.out.println("Your total is " + getHandValue());
-//        while (handValue < 21)
+
+            index++;
+        }
         }
         //player stays
-        if (choice == 2){
+       else {
             calculateHandValue();
             System.out.println("Your total is " + getHandValue());
         }
+       return false;
         }
 
 
@@ -78,6 +83,15 @@ public class Hand {
         //TODO Figure out how to handle Aces
         for(Card card : hand){
             handValue += card.getValue();
+
+        for(int i = 0; i < aceCount; i++){
+            if (handValue > 10){
+                handValue += 1;
+            }else{
+                handValue += 11;
+            }
+
+            }
         }
 
     }
