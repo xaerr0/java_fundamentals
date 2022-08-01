@@ -31,35 +31,40 @@ public class Hand {
     }
 
     public boolean hitOrStay(Deck deck) {
-        int index = 3;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\nWould you like to 1) Hit or 2) Stay?");
-        int choice = scanner.nextInt();
-        //If neither 1 nor 2 is entered
-        if (choice != 1 && choice != 2)
-            System.out.println("Please enter either 1) to Hit or 2) to Stay");
-        //player hits
-        else if (choice == 1) {
-            while (handValue < 21){
+        while (true) {
+            int index = 3;
 
-            hand.add(deck.takeCard());
-            calculateHandValue();
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\nWould you like to 1) Hit or 2) Stay?");
+            int choice = scanner.nextInt();
 
-            System.out.println("Your new card is " + getCard(index));
+            //If neither 1 nor 2 is entered
+            if (choice != 1 && choice != 2) {
+                System.out.println("Please enter either 1) to Hit or 2) to Stay");
+                return false;
+            }
+            //player hits
+            else if (choice == 1) {
+                while (handValue < 21) {
 
-            System.out.println("Your total is " + getHandValue());
+                    hand.add(deck.takeCard());
+                    calculateHandValue();
 
-            index++;
+                    System.out.println("Your new card is " + getCard(index));
+
+                    System.out.println("Your total is " + getHandValue());
+
+                    index++;
+                }
+            }
+            //player stays
+            else {
+                calculateHandValue();
+                System.out.println("Your total is " + getHandValue());
+            }
+            return true;
         }
-        }
-        //player stays
-       else {
-            calculateHandValue();
-            System.out.println("Your total is " + getHandValue());
-        }
-       return false;
-        }
-
+    }
 
 
     public Card getCard(int cardNum){
