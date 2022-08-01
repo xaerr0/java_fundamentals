@@ -49,7 +49,7 @@ public class GameController {
         player.getHand().hitOrStay(fullDeck);
         player.getHand().isBust();
 
-        player.getHand().dealerWins();
+
 
 
 
