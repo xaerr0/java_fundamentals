@@ -30,40 +30,35 @@ public class Hand {
         calculateHandValue();
     }
 
-    public boolean hitOrStay(Deck deck) {
-        while (true) {
+    public void hitOrStay(Deck deck) {
+        do {
             int index = 3;
-
             Scanner scanner = new Scanner(System.in);
             System.out.println("\nWould you like to 1) Hit or 2) Stay?");
             int choice = scanner.nextInt();
-
             //If neither 1 nor 2 is entered
+            //TODO Cover if letters are input
             if (choice != 1 && choice != 2) {
-                System.out.println("Please enter either 1) to Hit or 2) to Stay");
-                return false;
-            }
-            //player hits
-            else if (choice == 1) {
-                while (handValue < 21) {
-
+                System.out.println("Invalid Option");
+            } else
+                //player hits
+                if (choice == 1) {
                     hand.add(deck.takeCard());
                     calculateHandValue();
-
                     System.out.println("Your new card is " + getCard(index));
 
                     System.out.println("Your total is " + getHandValue());
 
-                    index++;
                 }
-            }
             //player stays
-            else {
+            if (choice == 2) {
                 calculateHandValue();
                 System.out.println("Your total is " + getHandValue());
+
             }
-            return true;
+
         }
+        while (handValue < 21);
     }
 
 
@@ -73,14 +68,9 @@ public class Hand {
 
     }
 
-    @Override
-    public String toString() {
-        String output = "";
-        for (Card card : hand) {
-            output += card + " - ";
-        }
-        return output;
-    }
+
+
+
 
     public void calculateHandValue(){
         handValue = 0;
@@ -88,21 +78,13 @@ public class Hand {
         //TODO Figure out how to handle Aces
         for(Card card : hand){
             handValue += card.getValue();
-
-        for(int i = 0; i < aceCount; i++){
-            if (handValue > 10){
-                handValue += 1;
-            }else{
-                handValue += 11;
-            }
-
-            }
         }
 
     }
     public boolean isBust(){
         if(handValue > 21){
             System.out.println("\nYou Bust!");
+            System.out.println("\nDealer Wins!");
             return true;
         }else{
             return false;
@@ -118,7 +100,20 @@ public class Hand {
         }
     }
 
+    public void dealerWins(){
+        if(computerAI.getHand().handValue > handValue){
+            System.out.println("Dealer wins!");
+        }
+    }
 
+    @Override
+    public String toString() {
+        String output = "";
+        for (Card card : hand) {
+            output += card + " - ";
+        }
+        return output;
+    }
 
 
 
