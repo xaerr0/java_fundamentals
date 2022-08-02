@@ -7,10 +7,10 @@ public class Hand {
 
     private ArrayList<Card> hand;
     private int handValue;
-    private Player computerAI;
+    private Player dealer;
 
-    public Player getComputerAI() {
-        return computerAI;
+    public Player getDealer() {
+        return dealer;
     }
 
     public Hand() {
@@ -25,45 +25,12 @@ public class Hand {
         return hand;
     }
 
-    public void takeFromDeck(Deck deck) {
-        hand.add(deck.takeCard());
-        calculateHandValue();
-    }
-
-    public void hitOrStay(Deck deck) {
-        int i = 1;
-        do {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("\nWould you like to 1) Hit or 2) Stay?");
-            int choice = scanner.nextInt();
-
-            //If neither 1 nor 2 is entered
-            //TODO Cover if letters are input
-            if (choice != 1 && choice != 2) {
-                System.out.println("Invalid Option");
-            } else
-                //player hits
-                if (choice == 1) {
-                    hand.add(deck.takeCard());
-                    calculateHandValue();
-                    System.out.println("Your new card is " + getCard(i + 2));
-
-                    System.out.println("Your total is " + getHandValue());
-                    i++;
-
-                }
-            //player stays
-            if (choice == 2) {
-                calculateHandValue();
-                System.out.println("Your total is " + getHandValue());
-
-            }
-
-        }
-        while (handValue < 21);
+//    public void takeFromDeck(Deck deck) {
+//        hand.add(deck.takeCard());
+//        calculateHandValue();
+//    }
 
 
-    }
 
 
     public Card getCard(int cardNum){
@@ -99,8 +66,7 @@ public class Hand {
     }
     public boolean isBust(){
         if(handValue > 21){
-            System.out.println("\nYou Bust!");
-            System.out.println("\nDealer Wins!");
+
             return true;
         }else{
             return false;
@@ -109,7 +75,7 @@ public class Hand {
 
     public boolean hasBlackjack(){
         if (this.handValue == 21) {
-            System.out.println("Blackjack! You win!");
+
             return true;
         }else{
             return false;
@@ -117,7 +83,7 @@ public class Hand {
     }
 
     public void dealerWins(){
-        if(computerAI.getHand().handValue > handValue){
+        if(dealer.getHand().handValue > handValue){
             System.out.println("Dealer wins!");
         }
     }

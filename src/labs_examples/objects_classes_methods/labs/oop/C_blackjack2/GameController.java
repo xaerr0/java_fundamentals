@@ -12,49 +12,37 @@ public class GameController {
         Deck fullDeck = new Deck();
 
 
-        // Test Ace Count
-        fullDeck.addCard(new Card(Suit.CLUB, Rank.ACE));
-        fullDeck.addCard(new Card(Suit.CLUB, Rank.ACE));
-        fullDeck.addCard(new Card(Suit.CLUB, Rank.ACE));
-        fullDeck.addCard(new Card(Suit.CLUB, Rank.ACE));
-//
-//
-//
-////        player.newUser();
-//
-//
-//
-//        fullDeck.shuffle();
+
+        player.newUser();
+
+
+
+
 //        //method to take bets
-////        player.handleBets(player);
+        player.handleBets();
 //
 //
-//        //Deal Player Cards
-//        player.getHand().takeFromDeck(fullDeck);
-//        player.getHand().takeFromDeck(fullDeck);
-//        System.out.println("Your first card is " + player.getHand().getCard(1));
-//        System.out.println("Your second card is " + player.getHand().getCard(2));
-//
-//        //Deal Dealer's Cards
-//        dealer.getHand().takeFromDeck(fullDeck);
-//        dealer.getHand().takeFromDeck(fullDeck);
-//        System.out.println("\nMy first card is \" HIDDEN \"");
-//        System.out.println("My second card is " + dealer.getHand().getCard(2));
-//
-//        //Check Dealer's Hand for Blackjack or Bust
-//        dealer.getHand().hasBlackjack();
-//        dealer.getHand().isBust();
-//
-//        //Total Player Hand
-//        System.out.println("\nYour total is " + player.getHand().getHandValue());
-//
-//        //Check Player's Hand for Blackjack or Bust
-//        player.getHand().hasBlackjack();
-//        player.getHand().isBust();
-//
-//        //Ask Player to Hit or Stay
-//        player.getHand().hitOrStay(fullDeck);
-//        player.getHand().isBust();
+        //Deal Player Cards
+        fullDeck.dealCard(player.getHand());
+        fullDeck.dealCard(player.getHand());
+        System.out.println("\nYour first card is " + player.getHand().getCard(1));
+        System.out.println("Your second card is " + player.getHand().getCard(2));
+
+        //Deal Dealer's Cards
+        fullDeck.dealCard(dealer.getHand());
+        fullDeck.dealCard(dealer.getHand());
+        System.out.println("\nMy first card is \" HIDDEN \"");
+        System.out.println("My second card is " + dealer.getHand().getCard(2));
+
+        //Total Player Hand
+        System.out.println("\nYour total is " + player.getHand().getHandValue());
+        player.hitOrStay(fullDeck);
+        dealer.dealerHits(fullDeck);
+
+        determineWinner(player, dealer);
+
+
+
 
 
 
@@ -63,9 +51,27 @@ public class GameController {
 //
     }
 
-
-
-
+    private static void determineWinner(Player player, Player dealer) {
+//        if(dealer.getHand().hasBlackjack()){
+//            System.out.println("Blackjack! You win!");
+//        } else if (dealer.getHand().isBust()){
+//            System.out.println("You win! Dealer busts!");
+//
+//        }
+//
+//
+//
+//
+//        //Check Player's Hand for Blackjack or Bust
+//        player.getHand().hasBlackjack();
+//        player.getHand().isBust();
+//
+//        //Ask Player to Hit or Stay
+//
+//
+//        //Check Dealer's Hand for Blackjack or Bust
+//        player.getHand().isBust();
+    }
 
 
 }

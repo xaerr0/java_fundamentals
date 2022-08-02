@@ -39,14 +39,16 @@ public class Deck {
 
     }
 
-    public Card takeCard(){
+    public void dealCard(Hand hand){
+        hand.getHand().add(takeCard());
+        hand.calculateHandValue();
+    }
 
+    public Card takeCard(){
         Card takeCard = new Card(deck.get(0));
         usedCards.add(takeCard);
         deck.remove(0);
         return takeCard;
-
-
     }
 
     @Override

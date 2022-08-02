@@ -18,7 +18,7 @@ public class Player {
         this.potValue = scanner.nextInt();
     }
 
-    public void handleBets(Player player) {
+    public void handleBets() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nHow much would you like to bet?");
         System.out.println("You currently have " + potValue);
@@ -28,24 +28,61 @@ public class Player {
         if (bet <= potValue) {
 
             if (bet == potValue) {
-                System.out.println("Nice! Good luck!");
-//                String userInput = scanner.nextLine();
-//                if (userInput.equalsIgnoreCase("yes"));
-//                System.out.println("Nice! Good luck!");
+                System.out.println("Are you sure? (y/n) ");
+                String userInput = scanner.next();
+
+                if (userInput.equalsIgnoreCase("y")){
+                    System.out.println("Nice! Good luck!");
+                } else {
+                    bet = getAdjustedBet();
+                }
             }
-            player.setBet(bet);
+            this.bet = bet;
         } else {
-            do {
-                System.out.println("\nPlease bet less than $" + potValue);
-                System.out.println("\nHow much would you like to bet?");
-                bet = scanner.nextInt();
-            } while (bet > potValue);
-
-
-            player.setBet(bet);
+            this.bet = getAdjustedBet();
         }
     }
 
+    public void hitOrStay(Deck deck) {
+        int i = 1;
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("\nWould you like to 1) Hit or 2) Stay?");
+            int choice = scanner.nextInt();
+
+            //If neither 1 nor 2 is entered
+            //TODO Cover if letters are input
+            if (choice != 1 && choice != 2) {
+                System.out.println("Invalid Option");
+            } else
+                //player hits
+                if (choice == 1) {
+                    deck.dealCard(hand);
+                    hand.calculateHandValue();
+                    System.out.println("Your new card is " + hand.getCard(i + 2));
+
+                    System.out.println("Your total is " + hand.getHandValue());
+                    i++;
+                }
+            //player stays
+            if (choice == 2) {
+                hand.calculateHandValue();
+                System.out.println("Your total is " + hand.getHandValue());
+            }
+        }
+        while (hand.getHandValue() < 21);
+    }
+
+    public int getAdjustedBet(){
+        int newBet = 0;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.println("\nPlease bet less than $" + potValue);
+            System.out.println("\nHow much would you like to bet?");
+            newBet = scanner.nextInt();
+        } while (newBet > potValue);
+        return newBet;
+    }
 
     public int getBet() {
         return bet;
@@ -59,15 +96,15 @@ public class Player {
         this.bet = bet;
     }
 
-//    public boolean computerAI() {
-//        if (hand.getHandValue() < 16)
-//
-//            return true;
-//
-//        return false;
-//
-//
-//    }
+    public void dealerHits(Deck deck) {
+        if (hand.getHandValue() <= 16){
+            do {
+                deck.dealCard(hand);
+            } while (hand.getHandValue() <= 16);
+
+        }
+
+    }
 }
 
 
