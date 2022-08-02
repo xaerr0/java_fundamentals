@@ -31,11 +31,12 @@ public class Hand {
     }
 
     public void hitOrStay(Deck deck) {
+        int i = 1;
         do {
-            int index = 3;
             Scanner scanner = new Scanner(System.in);
             System.out.println("\nWould you like to 1) Hit or 2) Stay?");
             int choice = scanner.nextInt();
+
             //If neither 1 nor 2 is entered
             //TODO Cover if letters are input
             if (choice != 1 && choice != 2) {
@@ -45,9 +46,10 @@ public class Hand {
                 if (choice == 1) {
                     hand.add(deck.takeCard());
                     calculateHandValue();
-                    System.out.println("Your new card is " + getCard(index));
+                    System.out.println("Your new card is " + getCard(i + 2));
 
                     System.out.println("Your total is " + getHandValue());
+                    i++;
 
                 }
             //player stays
@@ -59,6 +61,8 @@ public class Hand {
 
         }
         while (handValue < 21);
+
+
     }
 
 
@@ -78,6 +82,18 @@ public class Hand {
         //TODO Figure out how to handle Aces
         for(Card card : hand){
             handValue += card.getValue();
+            if (card.getValue() == 11){
+                aceCount++;
+
+            }
+        }
+
+        if (handValue > 21 && aceCount > 0) {
+            while(aceCount > 0 && handValue > 21){
+                aceCount--;
+                handValue -= 10;
+            }
+
         }
 
     }
