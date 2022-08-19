@@ -21,14 +21,14 @@ public class Player {
     public void handleBets() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("\nHow much would you like to bet?");
-        System.out.println("You currently have " + potValue);
+        System.out.println("You currently have $" + potValue);
 
         int bet = scanner.nextInt();
 
         if (bet <= potValue) {
 
             if (bet == potValue) {
-                System.out.println("Are you sure? (y/n) ");
+                System.out.println("Are you sure you want to go all in? (y/n) ");
                 String userInput = scanner.next();
 
                 if (userInput.equalsIgnoreCase("y")){
@@ -44,6 +44,7 @@ public class Player {
     }
 
     public void hitOrStay(Deck deck) {
+        hand.pause();
         int i = 1;
         do {
             Scanner scanner = new Scanner(System.in);
@@ -68,7 +69,9 @@ public class Player {
             if (choice == 2) {
                 hand.calculateHandValue();
                 System.out.println("Your total is " + hand.getHandValue());
+                break;
             }
+
         }
         while (hand.getHandValue() < 21);
     }
@@ -89,6 +92,7 @@ public class Player {
     }
 
     public Hand getHand() {
+        hand.pause();
         return hand;
     }
 
@@ -97,9 +101,12 @@ public class Player {
     }
 
     public void dealerHits(Deck deck) {
+        int i = 1;
         if (hand.getHandValue() <= 16){
             do {
                 deck.dealCard(hand);
+                System.out.println("\nMy new card is " + hand.getCard(i + 2));
+                i++;
             } while (hand.getHandValue() <= 16);
 
         }

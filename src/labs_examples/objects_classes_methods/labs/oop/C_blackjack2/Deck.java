@@ -42,6 +42,7 @@ public class Deck {
     public void dealCard(Hand hand){
         hand.getHand().add(takeCard());
         hand.calculateHandValue();
+        hand.pause();
     }
 
     public Card takeCard(){

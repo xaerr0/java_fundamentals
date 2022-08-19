@@ -18,7 +18,9 @@ public class Hand {
     }
 
     public int getHandValue() {
+        pause();
         return handValue;
+
     }
 
     public ArrayList<Card> getHand() {
@@ -88,12 +90,25 @@ public class Hand {
         }
     }
 
+    public void freshHand(){
+        hand.clear();
+    }
+
+    public void pause(){
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public String toString() {
         String output = "";
         for (Card card : hand) {
-            output += card + " - ";
+            output += card + " | ";
         }
+//        output = output.substring(0,output.length() - 2);
         return output;
     }
 
