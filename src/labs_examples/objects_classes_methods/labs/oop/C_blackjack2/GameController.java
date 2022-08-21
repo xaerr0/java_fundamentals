@@ -11,19 +11,23 @@ public class GameController {
     private Deck fullDeck;
     private Hand hand;
 
-    public GameController(){
+
+    public GameController() {
 
         player = new Player();
         dealer = new Player();
         fullDeck = new Deck();
         hand = new Hand();
+
+        player.newUser();
+        player.handleBets();
+
         fullDeck.shuffle();
+
         startRound();
 
 
     }
-
-
 
 
 //
@@ -31,12 +35,12 @@ public class GameController {
 //
 //
 //TODO Fix newuser
-//player.newUser();
+//
 
 //
 //
 ////        //method to take bets
-//        player.handleBets();
+//
 ////
 ////
 //        //Deal Player Cards
@@ -67,51 +71,44 @@ public class GameController {
 
 
     private void determineWinner(Player player, Player dealer) {
-        hand.pause();
+//        int loseMoney = player.setPotValue(player.loseMoney());
+
+//        hand.pause();
         if (player.getHand().isBust()) {
             System.out.println("You bust! Dealer wins!");
             losses++;
+            player.setPotValue(player.getPotValue() - player.getBet());
         } else if (dealer.getHand().hasBlackjack()) {
             System.out.println("Dealer has Blackjack! You lose!");
             losses++;
+            player.setPotValue(player.getPotValue() - player.getBet());
         } else if (dealer.getHand().isBust()) {
             System.out.println("Dealer busts! You win!");
             wins++;
+            player.setPotValue(player.getPotValue() + player.getBet());
         } else if (dealer.getHand().getHandValue() > player.getHand().getHandValue()) {
             System.out.println("Dealer has higher score. You lose!");
             losses++;
+            player.setPotValue(player.getPotValue() - player.getBet());
         } else if (dealer.getHand().getHandValue() < player.getHand().getHandValue()) {
             System.out.println("You have a higher score. You Win!");
             wins++;
+            player.setPotValue(player.getPotValue() + player.getBet());
         } else if (dealer.getHand().getHandValue() == player.getHand().getHandValue()) {
             System.out.println("Tie game! Dealer wins!");
             losses++;
+            player.setPotValue(player.getPotValue() - player.getBet());
         }
-        hand.pause();
+
+//        hand.pause();
         System.out.println("\nDealer's hand: " + dealer.getHand());
         System.out.println("Dealer's total: " + dealer.getHand().getHandValue());
-
-
-
-        Scanner scanner = new Scanner (System.in);
-
-        System.out.println("\nWould you like to play again? (y/n)");
-        String choice = scanner.next();
-        if (choice.equalsIgnoreCase("y")){
-            System.out.println("Good Luck!");
-
-
-        } else {
-            System.out.println("Thanks for playing! Quitter!");
-
-        }
 
 
     }
 
 
-
-    private void startRound(){
+    private void startRound() {
         player.getHand().freshHand();
         dealer.getHand().freshHand();
         fullDeck.shuffle();
@@ -140,17 +137,41 @@ public class GameController {
         determineWinner(player, dealer);
 
 
-        if (wins > 0 || losses > 0){
+        if (wins > 0 || losses > 0) {
             System.out.println();
             System.out.println("Starting next round.");
-            System.out.println("Wins: " + wins + " Losses: " + losses);
+            System.out.println("\nWins: " + wins + " Losses: " + losses);
+        }
+        if (player.getPotValue() > 1) {
+            continuePlaying(player, dealer);
+        } else {
+            System.out.println("Sorry you're out of cash! Thanks for playing!");
         }
 
-        startRound();
+    }
+
+    private boolean continuePlaying(Player player, Player dealer) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\nWould you like to play again? (y/n)");
+        String choice = scanner.next();
+
+//        if (player.getPotValue() < 1){
+//            System.out.println("Sorry you're out of cash! Thanks for playing!");
+//            return false;
+//        }
+        if (choice.equalsIgnoreCase("y")) {
+            System.out.println("Good Luck!");
+            System.out.println("You now have $" + player.getPotValue());
+            player.handleBets();
+            startRound();
+            return true;
 
 
-
-
+        } else {
+            System.out.println("Thanks for playing! Quitter!");
+            return false;
+        }
 
     }
 }

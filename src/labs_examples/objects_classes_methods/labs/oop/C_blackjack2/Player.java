@@ -7,6 +7,8 @@ public class Player {
     private String name;
     private int potValue;
     private int bet;
+    private int loseMoney;
+    private int winMoney;
 
 
     public void newUser() {
@@ -17,6 +19,25 @@ public class Player {
         System.out.println("Hello " + this.name + "! How much money would you like to start with?");
         this.potValue = scanner.nextInt();
     }
+
+    public int getPotValue() {
+        return potValue;
+    }
+
+
+    public int setPotValue(int potValue) {
+        this.potValue = potValue;
+        return potValue;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Player{" +
+                "potValue=" + potValue +
+                '}';
+    }
+
 
     public void handleBets() {
         Scanner scanner = new Scanner(System.in);
@@ -31,7 +52,7 @@ public class Player {
                 System.out.println("Are you sure you want to go all in? (y/n) ");
                 String userInput = scanner.next();
 
-                if (userInput.equalsIgnoreCase("y")){
+                if (userInput.equalsIgnoreCase("y")) {
                     System.out.println("Nice! Good luck!");
                 } else {
                     bet = getAdjustedBet();
@@ -42,6 +63,7 @@ public class Player {
             this.bet = getAdjustedBet();
         }
     }
+
 
     public void hitOrStay(Deck deck) {
         hand.pause();
@@ -76,7 +98,7 @@ public class Player {
         while (hand.getHandValue() < 21);
     }
 
-    public int getAdjustedBet(){
+    public int getAdjustedBet() {
         int newBet = 0;
         Scanner scanner = new Scanner(System.in);
         do {
@@ -102,7 +124,7 @@ public class Player {
 
     public void dealerHits(Deck deck) {
         int i = 1;
-        if (hand.getHandValue() <= 16){
+        if (hand.getHandValue() <= 16) {
             do {
                 deck.dealCard(hand);
                 System.out.println("\nMy new card is " + hand.getCard(i + 2));
@@ -111,6 +133,10 @@ public class Player {
 
         }
 
+    }
+
+    public void printBalance(Player player) {
+        System.out.println("Your currently have $" + getPotValue() + " left");
     }
 }
 
