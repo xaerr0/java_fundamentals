@@ -7,8 +7,7 @@ public class Player {
     private String name;
     private int potValue;
     private int bet;
-    private int loseMoney;
-    private int winMoney;
+
 
 
     public void newUser() {
@@ -17,9 +16,10 @@ public class Player {
         this.name = scanner.next();
 
         System.out.println("Hello " + this.name + "! How much money would you like to start with?");
-        this.potValue = scanner.nextInt();
+        if (scanner.hasNextInt()) {
+            this.potValue = scanner.nextInt();
+        }
     }
-
     public int getPotValue() {
         return potValue;
     }
@@ -71,10 +71,11 @@ public class Player {
         do {
             Scanner scanner = new Scanner(System.in);
             System.out.println("\nWould you like to 1) Hit or 2) Stay?");
-            int choice = scanner.nextInt();
-
+            int choice = 0;
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+            }
             //If neither 1 nor 2 is entered
-            //TODO Cover if letters are input
             if (choice != 1 && choice != 2) {
                 System.out.println("Invalid Option");
             } else

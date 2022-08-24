@@ -1,6 +1,6 @@
 package labs_examples.objects_classes_methods.labs.oop.C_blackjack2;
 
-public class mainGame {
+public class MainGame {
 
     public static void main(String[] args) {
 

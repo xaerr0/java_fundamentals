@@ -34,7 +34,6 @@ public class GameController {
 //
 //
 //
-//TODO Fix newuser
 //
 
 //
@@ -121,7 +120,6 @@ public class GameController {
         System.out.println("Your second card is " + player.getHand().getCard(2));
 
         //Deal Dealer's Cards
-
         fullDeck.dealCard(dealer.getHand());
         fullDeck.dealCard(dealer.getHand());
         System.out.println("\nMy first card is \" HIDDEN \"");
