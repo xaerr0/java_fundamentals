@@ -1,20 +1,15 @@
-package labs_examples.objects_classes_methods.labs.oop.C_blackjack2;
+package labs_examples.objects_classes_methods.labs.oop.C_blackjack2.models;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Hand {
 
-    private ArrayList<Card> hand;
+    private final ArrayList<Card> hand;
     private int handValue;
-    private Player dealer;
-
-    public Player getDealer() {
-        return dealer;
-    }
 
     public Hand() {
-        hand = new ArrayList<Card>();
+        hand = new ArrayList<>();
     }
 
     public int getHandValue() {
@@ -27,77 +22,55 @@ public class Hand {
         return hand;
     }
 
-//    public void takeFromDeck(Deck deck) {
-//        hand.add(deck.takeCard());
-//        calculateHandValue();
-//    }
-
-
-
-
-    public Card getCard(int cardNum){
+    public Card getCard(int cardNum) {
         Card c = hand.get(cardNum - 1);
         return c;
-
     }
 
-
-
-
-
-    public void calculateHandValue(){
+    public void calculateHandValue() {
         handValue = 0;
         int aceCount = 0;
         //TODO Figure out how to handle Aces
-        for(Card card : hand){
+        for (Card card : hand) {
             handValue += card.getValue();
-            if (card.getValue() == 11){
+            if (card.getValue() == 11) {
                 aceCount++;
-
             }
         }
-
+        //TODO - Jared note - cool solution!
         if (handValue > 21 && aceCount > 0) {
-            while(aceCount > 0 && handValue > 21){
+            //TODO - Jared edit - if handValue drops below 21, then the remaining ace(s) can stay 11
+            while (handValue > 21 || aceCount > 0) {
                 aceCount--;
                 handValue -= 10;
             }
-
         }
-
     }
-    public boolean isBust(){
-        if(handValue > 21){
 
+    public boolean isBust() {
+        if (handValue > 21) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public boolean hasBlackjack(){
-        if (this.handValue == 21) {
-
+    public boolean hasBlackjack() {
+        if (handValue == 21) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
-    public void dealerWins(){
-        if(dealer.getHand().handValue > handValue){
-            System.out.println("Dealer wins!");
-        }
-    }
-
-    public void freshHand(){
+    public void freshHand() {
         hand.clear();
     }
 
-    public void pause(){
+    public void pause() {
         try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e){
+            Thread.sleep(100);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
@@ -111,7 +84,5 @@ public class Hand {
 //        output = output.substring(0,output.length() - 2);
         return output;
     }
-
-
 
 }

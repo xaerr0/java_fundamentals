@@ -1,4 +1,4 @@
-package labs_examples.objects_classes_methods.labs.oop.C_blackjack2;
+package labs_examples.objects_classes_methods.labs.oop.C_blackjack2.models;
 
 public enum Suit {
 
