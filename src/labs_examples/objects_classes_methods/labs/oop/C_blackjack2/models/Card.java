@@ -1,9 +1,10 @@
-package labs_examples.objects_classes_methods.labs.oop.C_blackjack2;
+package labs_examples.objects_classes_methods.labs.oop.C_blackjack2.models;
 
 public class Card {
 
-    private Suit suit;
-    private Rank rank;
+    // TODO - Jared edit - these fields can be final since they are never reassigned
+    private final Suit suit;
+    private final Rank rank;
 
     //Create card
     public Card(Suit suit, Rank rank){
@@ -32,6 +33,5 @@ public class Card {
     public String toString(){
         return this.suit.toString() + " " + this.rank.toString() + " " + this.suit.toString();
     }
-
 
 }
