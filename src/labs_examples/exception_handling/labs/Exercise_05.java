@@ -4,15 +4,34 @@ import java.util.Arrays;
 
 /**
  * Exception Handling Exercise 5:
- *
- *      Demonstrate how to throw an exception.
- *
+ * <p>
+ * Demonstrate how to throw an exception.
  */
 
 class Example {
 
     public static void main(String[] args) {
 
+//       using throw keyword
+        checkAge(16);
+//        checkAge(21);
+
+
+
     }
+
+//               using throw keyword
+    static void checkAge(int age) {
+        if (age < 18) {
+            throw new ArithmeticException("You must be at least 21 years old.");
+        }
+        else {
+            System.out.println("Welcome in!");
+        }
+    }
+
+
+
+
 
 }
