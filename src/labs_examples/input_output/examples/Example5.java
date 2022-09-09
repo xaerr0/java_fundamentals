@@ -15,8 +15,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 class CopyFile {
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         int i;
 
         String fileReadPath = "src/labs_examples/input_output/files/char_data.txt";
@@ -33,27 +32,27 @@ class CopyFile {
 
             do {
                 i = fin.read();
-                if(i != -1)
+                if (i != -1)
                     if ((char) i == '.')
                         i = '!';
-                    fout.write(i);
-            } while(i != -1);
+                fout.write(i);
+            } while (i != -1);
 
-        } catch(IOException exc) {
+        } catch (IOException exc) {
             System.out.println("I/O Error: " + exc);
         } finally {
             try {
-                if(fin != null) {
+                if (fin != null) {
                     fin.close();
                 }
-            } catch(IOException exc) {
+            } catch (IOException exc) {
                 System.out.println("Error Closing Input File");
             }
             try {
-                if(fout != null) {
+                if (fout != null) {
                     fout.close();
                 }
-            } catch(IOException exc) {
+            } catch (IOException exc) {
                 System.out.println("Error Closing Output File");
             }
         }

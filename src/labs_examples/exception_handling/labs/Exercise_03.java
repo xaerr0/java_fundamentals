@@ -15,7 +15,7 @@ public class Exercise_03 {
             int[] num = {43, 32, 12, 0};
 //            int x = num[1] / num [3];
             System.out.println(num[10]);
-            //TODO Print both messages?
+
         } catch (ArithmeticException | ArrayIndexOutOfBoundsException exc) {
             System.out.println(exc.getMessage());
         } finally {
