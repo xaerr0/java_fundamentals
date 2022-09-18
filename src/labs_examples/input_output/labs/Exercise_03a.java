@@ -1,40 +1,51 @@
 package labs_examples.input_output.labs;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+
+import javax.annotation.processing.Filer;
+import java.io.*;
 
 /**
  * Input/Output Exercise 3: variety
  *
- *    1) Demonstrate the usage of at least two additional Byte Streams
- *
- *    */
+ *    2) Demonstrate the usage of at least two additional Character Streams
+*/
+
 
 public class Exercise_03a {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        FileInputStream fin = null;
-        FileOutputStream fout = null;
+        FileWriter writer = null;
+        FileReader reader = null;
 
         try {
-            fin = new FileInputStream("src/labs_examples/input_output/files/example_03a.txt");
-            fout = new FileOutputStream("src/labs_examples/input_output/files/example_03aCOPY");
+            writer = new FileWriter("output.txt");
+            reader = new FileReader("input.txt");
 
             int i;
-            while ((i = fin.read()) != -1)
-                fout.write((byte) i);
-            System.out.println("File successfully copied.");
+            while ((i = reader.read()) != -1) {
+                writer.write(i);
+            }
+
         } catch (IOException e) {
-            System.out.println("I/O Error: " + e);
+            e.printStackTrace();
         } finally {
-            if (fin != null)
-                fin.close();
-            if (fout != null)
-                fout.close();
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-
-
+        if (writer != null) {
+            try {
+                writer.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 }
+
+

@@ -26,7 +26,7 @@ class Example {
             int bytesRead = 0;
 
             while ((bytesRead = bufferedInputStream.read(buffer)) != -1) {
-                fout.write(buffer);
+                fout.write(buffer, 0, bytesRead);
             }
         } catch (IOException e) {
             e.printStackTrace();

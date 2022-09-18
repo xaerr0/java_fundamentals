@@ -4,18 +4,20 @@ import java.io.*;
 
 /**
  *
- * 2) Demonstrate the usage of at least two additional Character Streams
+ * 3) Demonstrate using a buffer on one of the Byte Streams and one of the Character Streams
  *
  *
 */
-public class Exercise_03b {
+public class Exercise_03c2 {
     public static void main(String[] args) {
 
         String[] bbqFoods = {"Brisket", "Pulled Pork", "Cornbread"};
         try {
             BufferedWriter writer = new BufferedWriter(
                     new FileWriter("src/labs_examples/input_output/files/Exercise_03b.txt"));
-            writer.write("Blah Blah Blah" + "\nLook at me writing in a file" + "\nBlah Blah Blah");
+            writer.write("Blah Blah Blah\n" +
+                         "Look at me writing in a file\n" +
+                         "Blah Blah Blah");
 //            writer.write();
 //            writer.write();
 
