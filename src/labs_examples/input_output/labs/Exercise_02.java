@@ -14,7 +14,7 @@ import java.util.Scanner;
  * print out the unencrypted version. Does it match the original file?
  */
 
-//TODO HAAALP!
+
 public class Exercise_02 {
     public static void main(String[] args) throws IOException {
         BufferedReader inputStream = null;
@@ -62,80 +62,61 @@ public class Exercise_02 {
     }
 
     public static void scannerInput() throws IOException {
-            File file = new File("src/labs_examples/input_output/files/ICPMiracles.txt");
-            Scanner fs = new Scanner(file);
-            StringBuilder sb = new StringBuilder();
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Hello, would you like to 1) encrypt or 2) decrypt your file?");
-            int choice = 0;
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-            }
-            if (choice != 1 && choice != 2) {
-                System.out.println("Invalid Option");
-            } else if (choice == 1) {
-                //Code for encrypt
-                while (fs.hasNextLine()) {
-                    sb.append(fs.nextLine());
-                    //Test Original
+        String filePath = "src/labs_examples/input_output/files/ICPMiracles.txt";
+
+        StringBuilder sb = new StringBuilder();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Hello, would you like to 1) encrypt or 2) decrypt your file?");
+        int choice = 0;
+        if (scanner.hasNextInt()) {
+            choice = scanner.nextInt();
+        }
+        if (choice != 1 && choice != 2) {
+            System.out.println("Invalid Option");
+        } else if (choice == 1) {
+            //Code for encrypt
+
+            int c;
+
+            //Test Original
 //                    System.out.println(fileScan.nextLine());
-                    try {
-                        FileReader fr = new FileReader(file);
-                        FileWriter fw = new FileWriter(file + "_encrypted.txt");
-                        String line = "";
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(filePath));
+                BufferedWriter fw = new BufferedWriter(new FileWriter(filePath + "_encrypted.txt"));
+                while ((c = br.read()) != -1) {
 
-                        for (int i = 0; i < sb.length(); i++) {
-                            char ch = sb.toString().charAt(i);
-
-                            line += ((char) (ch + 5));
-
-                        }
-                        //Test Encrypted File
+                    //Test Encrypted File
 //                    System.out.println(line);
-
-                        fw.write(line);
-
-                        fw.close();
-
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-
+                    fw.write((char) (c + 5));
                 }
-                }if (choice == 2) {
-                    //Code for decrypt
-                    Scanner fsEnc = new Scanner(file + "_encrypted.txt");
-                    while (fsEnc.hasNextLine()) {
-                        sb.append(fsEnc.nextLine());
-                        //Test Original
-                        System.out.println(fsEnc.nextLine());
-                        try {
-                            FileReader fr = new FileReader(file + "_encrypted.txt");
-                            FileWriter fwDec = new FileWriter(file + "_decrypted.txt");
-                            String line = "";
-
-                            for (int i = 0; i < sb.length(); i++) {
-                                char ch = sb.toString().charAt(i);
-
-                                line += ((char) (ch - 5));
-
-                            }
-
-                            fwDec.write(line);
-
-                            fwDec.close();
-
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                        break;
-
-                    }
-
-                }
-
+                fw.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
         }
+        if (choice == 2) {
+            //Code for decrypt
+            int c;
+            //Test Original
+//                    System.out.println(fileScan.nextLine());
+            try {
+                BufferedReader brEnc = new BufferedReader(new FileReader(filePath + "_encrypted.txt"));
+                BufferedWriter fw = new BufferedWriter(new FileWriter(filePath + "_decrypted.txt"));
+                while ((c = brEnc.read()) != -1) {
+                    //Test Encrypted File
+//                    System.out.println(line);
+                    fw.write((char) (c - 5));
+                }
+                fw.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+
+    }
+}
+
 
 
 

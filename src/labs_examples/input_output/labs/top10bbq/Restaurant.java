@@ -1,7 +1,5 @@
 package labs_examples.input_output.labs.top10bbq;
 
-import java.util.Comparator;
-
 public class Restaurant {
 
     private int rank;
@@ -74,8 +72,14 @@ public class Restaurant {
                ", phoneNum='" + phoneNum + '\'' +
                ", hours='" + hours + '\'' +
                '}';
+
+    }
+
+    public String toCSV() {
+        return rank + "," + name + "," + address + "," + city + "," + phoneNum + "," + hours;
+
     }
 
 
-    }
+}
 

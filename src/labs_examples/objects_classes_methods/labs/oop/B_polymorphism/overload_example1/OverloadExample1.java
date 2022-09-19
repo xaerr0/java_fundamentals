@@ -22,7 +22,6 @@ public class OverloadExample1 {
     }
 
 //        Example of Overloading #2
-    //TODO: Why does it have to be public static class?
     public static class Sum {
 
     public int sum (int x, int y){

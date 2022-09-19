@@ -35,7 +35,7 @@ public class Exercise_06 {
             nums[swap] = temp;
         }
 
-//        // TODO: solve using a second array
+
         for (int i : reverse){
             System.out.println(i + " | ");
         }

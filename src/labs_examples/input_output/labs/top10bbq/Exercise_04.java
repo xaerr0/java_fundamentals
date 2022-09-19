@@ -42,29 +42,19 @@ public class Exercise_04 {
         }
 
 
-
         //Reverse Array and Write
         try (PrintWriter writer = new PrintWriter(filePath3)) {
 
+            restaurants.sort(Comparator.comparing(Restaurant::getRank));
 
-            int s = restaurants.size();
-            for (int i = 0; i < s; i++) {
-                //Print test
-//                System.out.println(restaurants.get(i).toString() + "\r");
-                //Write to file
-//                writer.write(restaurants.get(i).toString() + "\r");
+            for (Restaurant restaurant : restaurants) {
 
-                //Sort 1 - 10
-                restaurants.sort(Comparator.comparing(Restaurant::getRank));
-//                System.out.println(restaurants.get(i).toString() + "\r");
-                //Write to File
-                writer.write(restaurants.get(i).toString() + "\r");
+                writer.write(restaurant.toCSV() + "\r");
 
             }
-        }  catch (IOException e) {
-        e.printStackTrace();
-    }
-
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -72,6 +62,7 @@ public class Exercise_04 {
 
     private static Restaurant mapValuesToBbqObject(String[] values) {
 
+        values = removeSpaces(values);
         Restaurant restaurant = new Restaurant();
 
         restaurant.setRank(Integer.parseInt(values[0]));
@@ -86,5 +77,16 @@ public class Exercise_04 {
 
     }
 
+    private static String[] removeSpaces(String[] array) {
+
+        String[] results = new String[array.length];
+
+        for (int i = 0; i < results.length; i++) {
+            results[i] = array[i].trim();
+        }
+
+        return results;
+    }
 
 }
+

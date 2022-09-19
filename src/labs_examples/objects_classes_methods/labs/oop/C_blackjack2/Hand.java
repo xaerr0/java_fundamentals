@@ -48,7 +48,6 @@ public class Hand {
     public void calculateHandValue(){
         handValue = 0;
         int aceCount = 0;
-        //TODO Figure out how to handle Aces
         for(Card card : hand){
             handValue += card.getValue();
             if (card.getValue() == 11){

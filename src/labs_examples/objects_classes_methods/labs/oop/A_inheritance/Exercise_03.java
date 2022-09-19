@@ -7,7 +7,7 @@ package labs_examples.objects_classes_methods.labs.oop.A_inheritance;
  * You answer:
  *
  */
-//TODO: Review with Jared
+
 
 class A_1 {
     public A_1()
