@@ -20,7 +20,6 @@ public class Exercise_06 {
 }
 
 class EvenRunnable implements Runnable {
-
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + " starting.");
@@ -28,22 +27,16 @@ class EvenRunnable implements Runnable {
             try {
                 for (int count = 2; count <= 100; count++) {
                     notifyAll();
-                    if (count % 2 == 0)
-                        Thread.sleep(300);
+                    if (count % 2 == 0) Thread.sleep(300);
                     System.out.println(Thread.currentThread().getName() + ", count is " + count);
                     wait();
                 }
-
-
             } catch (InterruptedException e) {
                 System.out.println(Thread.currentThread().getName() + " interrupted.");
             }
             System.out.println(Thread.currentThread().getName() + " terminating.");
         }
-
-
     }
-
 }
 
 class OddRunnable implements Runnable {
@@ -54,27 +47,14 @@ class OddRunnable implements Runnable {
             try {
                 for (int count = 1; count <= 100; count++) {
                     notifyAll();
-                    if (count % 2 != 0)
-                        Thread.sleep(300);
+                    if (count % 2 != 0) Thread.sleep(300);
                     System.out.println(Thread.currentThread().getName() + ", count is " + count);
                     wait();
                 }
-
-
             } catch (InterruptedException e) {
                 System.out.println(Thread.currentThread().getName() + " interrupted.");
-
             }
             System.out.println(Thread.currentThread().getName() + " terminating.");
         }
-
-
     }
 }
-
-
-
-
-
-
-

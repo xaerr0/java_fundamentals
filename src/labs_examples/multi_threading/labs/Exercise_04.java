@@ -1,12 +1,10 @@
 package labs_examples.multi_threading.labs;
 
-import java.io.IOException;
-
 /**
  * Multithreading Exercise 4:
- *
- *      Demonstrate the use of a synchronized block and a synchronized method - ensure that the synchronization is
- *      working as expected
+ * <p>
+ * Demonstrate the use of a synchronized block and a synchronized method - ensure that the synchronization is
+ * working as expected
  */
 
 
@@ -18,7 +16,6 @@ public class Exercise_04 {
         SecondThread t2 = new SecondThread(count);
         t1.start();
         t2.start();
-
     }
 
     static class Count {
@@ -36,27 +33,28 @@ public class Exercise_04 {
 
     private static class FirstThread extends Thread {
         Count c;
-        FirstThread(Count c){
+
+        FirstThread(Count c) {
             this.c = c;
 
         }
-        public void run(){
+
+        public void run() {
             c.printCount(100);
         }
-
     }
 
-    private static class SecondThread extends Thread{
+    private static class SecondThread extends Thread {
         Count c;
-        SecondThread(Count c){
+
+        SecondThread(Count c) {
             this.c = c;
 
         }
-        public void run(){
+
+        public void run() {
             c.printCount(500);
         }
 
     }
-    }
-
-
+}

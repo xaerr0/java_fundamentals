@@ -1,4 +1,4 @@
-package labs_examples.generics.labs;
+package labs_examples.generics.repl;
 
 import java.lang.reflect.Array;
 

@@ -25,10 +25,13 @@ public class Repl1 {
             this.val1 = val1;
             this.val2 = val2;
         }
-//TODO How to print both on one line? 'Operator '+' cannot be applied to 'T', 'U''
+
         public void print(){
+            String s1 = "space";
+            String s2 = "space2";
+            String s3 = s1 + s2;
+
             System.out.println(val1);
             System.out.println(val2);
         }
     }
-
