@@ -6,8 +6,9 @@ package labs_examples.generics.labs.exercise3_3;
 
 public class GenericArray {
 
+    //@TODO Swap by Value
 
-    public static <T> void arraySwap(T[] a, int i, int j) {
+    public static <T> void arraySwapByIndex(T[] a, int i, int j) {
         T tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
@@ -15,14 +16,14 @@ public class GenericArray {
 
     public static void main(String[] args) {
         Integer[] intList = {3, 5, 3, 9, 10};
-        arraySwap(intList, 0, 4);
+        arraySwapByIndex(intList, 0, 4);
         for (Integer i : intList)
             System.out.print(i + ", ");
 
         System.out.println();
 
         String[] stringList = {"Dog", "Cat", "Squirrel", "Dinosaur", "ManbBearPig"};
-        arraySwap(stringList, 1, 3);
+        arraySwapByIndex(stringList, 1, 3);
         for (String str : stringList)
             System.out.print(str + ", ");
 

@@ -1,50 +1,47 @@
 package labs_examples.generics.labs.exercise3_2;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
-/** 2)Write a generic method to count the number of elements in a"Collection" of Strings that are palindromes
- *
- */
-
+///** 2)Write a generic method to count the number of elements in a"Collection" of Strings that are palindromes
+// *
+// */
+//
 public class GenericPalindrome {
+    //
 
     public static void main(String[] args) {
 
-        GenericPalindrome genPan = new GenericPalindrome();
-        Collection<String> palindromeCheck = new ArrayList<>();
-        palindromeCheck.add("Rotator");
-        palindromeCheck.add("Square");
-        palindromeCheck.add("Madam");
-        palindromeCheck(palindromeCheck);
+        List<String> wordList = new ArrayList<>();
+        wordList.add("Rotator");
+        wordList.add("Square");
+        wordList.add("Madam");
 
+        Integer palindromeCount = palindromeCheck(wordList);
+        System.out.println("There are " + palindromeCount + " palindromes in your list");
 
     }
 
-    private void palindromeCheck() {
-    }
 
-    public static <T> boolean palindromeCheck(Collection<T> c) {
-        List<T> list = new ArrayList<>(c);
-        System.out.println(list);
+    public static <T> Integer palindromeCheck(List<T> wordList) {
 
-        System.out.println(list);
-        return list.equals(new ArrayList<>(c));
+        StringBuilder sbWord = new StringBuilder();
+
+        Integer count = 0;
+        for (T word : wordList) {
+            sbWord.append(word);
+
+            String wordString = sbWord.toString();
+            String revWord = sbWord.reverse().toString();
+
+            if (wordString.equalsIgnoreCase(revWord)) {
+                System.out.println(wordString + " is a palindrome");
+                count++;
+            } else {
+                System.out.println(wordString + " is NOT a palindrome");
+            }
+            sbWord.setLength(0);
+        }
+        return count;
     }
 }
-//        String str;
-//        String reverseStr = "";
-//
-//
-//        for (int i = (str.length() - 1); i >= 0; i--) {
-//            reverseStr = reverseStr + str.charAt(i);
-//        }
-//        if (str.equalsIgnoreCase(reverseStr)) {
-//            System.out.println(str + " is a Palindrome");
-//        } else {
-//            System.out.println(str + " is not a Palindrome");
-//        }
-//
-//    }
