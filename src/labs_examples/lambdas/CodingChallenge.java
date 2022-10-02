@@ -15,6 +15,11 @@ public class CodingChallenge {
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
 
+        System.out.println(calculator.sum.calculate(4, 5));
+        System.out.println(calculator.subtract.calculate(4, 5));
+        System.out.println(calculator.multiply.calculate(4, 5));
+        System.out.println(calculator.divide.calculate(4, 2));
+        System.out.println(calculator.sqrRoot.calculate(4));
 
 
 
