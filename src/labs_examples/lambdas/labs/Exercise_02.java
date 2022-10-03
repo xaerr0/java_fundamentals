@@ -1,8 +1,10 @@
 package labs_examples.lambdas.labs;
 
 import java.time.LocalDateTime;
+import java.util.function.BiConsumer;
 import java.util.function.BiPredicate;
-import java.util.function.DoubleBinaryOperator;
+import java.util.function.BooleanSupplier;
+import java.util.function.ObjDoubleConsumer;
 
 
 /**
@@ -27,6 +29,7 @@ public class Exercise_02 {
         // 2) Supplier<T> / T Get();
         System.out.println("\n------Supplier examples------");
         Supplier<LocalDateTime> suppler = () -> LocalDateTime.now();
+        //                Method Reference
 //        Supplier<LocalDateTime> suppler = LocalDateTime::now;
         System.out.println(suppler.get());
 
@@ -39,6 +42,8 @@ public class Exercise_02 {
         // 4) BiFunction<T, U, R> / R apply(T t, U u);
         System.out.println("\n------BiFunction examples------");
         BiFunction<Integer, Integer, Integer> biFunction = (a, b) -> (a + b);
+        //                Method Reference
+//        BiFunction<Integer, Integer, Integer> biFunction = Integer::sum;
         BiFunction<Integer, Integer, String> biFunction2 = (a, b) -> ("Example with String Parameter: " + a + b);
         int biFunctResult = biFunction.apply(4, 6);
         String biFunctResult2 = biFunction2.apply(4, 6);
@@ -58,11 +63,39 @@ public class Exercise_02 {
         BinaryOperator<Integer, Integer, Integer> binaryOp = (x1, x2) -> x1.compareTo(x2) * x2;
         System.out.println(binaryOp.apply(5, 7));
 
-        // 7) BinaryOperator<T, U, R> / R apply(T t, U u);
+        // 7) BiPredicate<T, U> / boolean test(T t, U u);
         System.out.println("\n------BiPredicate examples------");
         BiPredicate<String, String> biPred = (str1, str2) -> str1.equals(str2);
+//                        Method Reference
+//        BiPredicate<String, String> biPred = String::equals;
+
         System.out.println(biPred.test("poop", "poop"));
+
+        // 8) BiConsumer<T, U> / R apply(T t, U u);
+        System.out.println("\n------BiConsumer examples------");
+        BiConsumer<Integer, Integer> adder = (x1, x2) -> System.out.println("Adder: " + (x1 + x2));
+        BiConsumer<Integer, Integer> multiplier = (x1, x2) -> System.out.println("Multiplier: " + (x1 * x2));
+        adder.andThen(multiplier).accept(2, 3);
+        System.out.println("--------------------------------------");
+        multiplier.andThen(adder).accept(1, 6);
+
+
+        // 9) ObjDoubleConsumer<T> / accept(T t, double value)
+        System.out.println("\n------ObjDoubleConsumer examples------");
+        ObjDoubleConsumer<String> i = (s, d) -> System.out.println(s + d);
+        i.accept("String Test ", 0.1234);
+
+        // 10) BooleanSupplier<T> / accept(T t, double value)
+        System.out.println("\n------BooleanSupplier examples------");
+        int x = 0, y = 1;
+        BooleanSupplier bs = () -> x < y;
+        System.out.println(bs.getAsBoolean());
+
+        bs = () -> x > y;
+        System.out.println(bs.getAsBoolean());
+
     }
+
 
 
     @FunctionalInterface
