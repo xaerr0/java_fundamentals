@@ -87,7 +87,7 @@ public class Exercise_02 {
 
         // 10) BooleanSupplier<T> / accept(T t, double value)
         System.out.println("\n------BooleanSupplier examples------");
-        int x = 0, y = 1;
+        int x = 2, y = 4;
         BooleanSupplier bs = () -> x < y;
         System.out.println(bs.getAsBoolean());
 
@@ -97,6 +97,7 @@ public class Exercise_02 {
     }
 
 
+//@TODO Difference between using below and above?
 
     @FunctionalInterface
     public interface Predicate<T> {

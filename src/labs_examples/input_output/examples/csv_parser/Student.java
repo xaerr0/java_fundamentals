@@ -20,6 +20,9 @@ public class Student {
         this.gpa = gpa;
     }
 
+    public Student(String s) {
+    }
+
     public int getId() {
         return id;
     }
