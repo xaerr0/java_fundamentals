@@ -3,7 +3,6 @@ package labs_examples.lambdas.labs;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -34,9 +33,6 @@ import java.util.stream.Stream;
 
 class Example {
     public static void main(String[] args) throws IOException {
-
-
-
 
 
 //    1) Demonstrate the use of the range function to print out the numbers 1 through 15 (inclusive)
@@ -97,46 +93,40 @@ class Example {
         System.out.println("\n---------- Example 8 ------------");
         Stream<String> data3 = Files.lines(Paths.get(dataFile));
 
-        double sumData =
-                data3
+        double sumData = data3
                 .map(s -> s.split(","))
                 .filter(s -> s.length == 3)
                 .map(s -> s[2])
-                .mapToDouble(Double::parseDouble)
-                .sum();
+                .mapToDouble(Double::parseDouble).sum();
 
         System.out.println(sumData);
-
-
-
+        data3.close();
 
 //   9) Demonstrate the anyMatch() function.
         System.out.println("\n---------- Example 9 ------------");
         Stream<String> band = Files.lines(Paths.get(bandsFile));
-
-//        band
-//                .anyMatch(s -> s.startsWith("E")) System.out.println();
-
-
-
+        boolean hasLetterE;
+        hasLetterE = band
+                .anyMatch(s -> s.startsWith("E"));
+        System.out.println("Do any bands start with the letter E? " + "\n" + hasLetterE);
+        band.close();
 
 //   10) Demonstrate the allMatch() function.
 
         System.out.println("\n---------- Example 10 ------------");
-
-
-
+        Stream<String> band2 = Files.lines(Paths.get(bandsFile));
+        boolean isCaps;
+        isCaps = band2
+                .allMatch(s -> Character.isUpperCase(s.charAt(0)));
+        System.out.println("Do all bands in the list start with a capital letter?" + "\n" + isCaps);
+        band2.close();
 
 //   11) Demonstrate the collect() terminal operation to store resulting values into a List
         System.out.println("\n---------- Example 11 ------------");
-
-
-
-
-
-
-
-
+        List<String> band3 = Files.lines(Paths.get(bandsFile))
+                .filter(s -> s.length() < 6)
+                .collect(Collectors.toList());
+        band3.forEach(s -> System.out.println(s));
 
 
     }

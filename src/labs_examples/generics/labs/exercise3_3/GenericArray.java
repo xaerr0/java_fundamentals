@@ -6,7 +6,7 @@ package labs_examples.generics.labs.exercise3_3;
 
 public class GenericArray {
 
-    //@TODO Swap by Value
+//    @TODO Swap by Value
 
     public static <T> void arraySwapByIndex(T[] a, int i, int j) {
         T tmp = a[i];
