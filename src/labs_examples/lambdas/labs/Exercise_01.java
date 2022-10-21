@@ -24,20 +24,42 @@ package labs_examples.lambdas.labs;
 
 public class Exercise_01 {
 
+    @FunctionalInterface
+    interface VoidInterface{
+        public void noParameter();
+    }
     public static void main(String[] args)  {
         //        2) Implement the previous functional interface with a lambda expression and use it. Also demonstrate creating
 // * an anonymous inner class from this interface
 
-        Runnable r1 = new Runnable() {
+        //lambda
+        VoidInterface vi = () -> System.out.println("hello");
+        vi.noParameter();
+
+        //anon
+        VoidInterface vi2 = new VoidInterface() {
             @Override
-            public void run() { // anonymous class
-                System.out.println("Runnable with Anonymous Class");
+            public void noParameter() {
+                System.out.println("hello from anon");
             }
         };
-        Runnable r2 = () -> {   // lambda expression
-            System.out.println("Runnable with Lambda Expression");
-        };
-        //@TODO Why no work??
+           vi2.noParameter();
+
+
+
+
+//        Runnable r1 = new Runnable() {
+//            @Override
+//            public void run() { // anonymous class
+//                System.out.println("Runnable with Anonymous Class");
+//            }
+//        };
+//        Runnable r2 = () -> {   // lambda expression
+//            System.out.println("Runnable with Lambda Expression");
+//        };
+//        //@TODO Why no work??
+//        Thread t1 = new Thread(r1, "runnable 1");
+//
 //        new Thread(r1).start();
 //        new Thread(r2).start();
 
@@ -49,6 +71,13 @@ public class Exercise_01 {
         int result = s.calculate(y);
         System.out.println(result);
 
+
+        SquareRoot s2 = new SquareRoot() {
+            @Override
+            public int calculate(int x) {
+                return x * x;
+            }
+        };
     }
 
 }
