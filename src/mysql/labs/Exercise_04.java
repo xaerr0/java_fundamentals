@@ -10,7 +10,7 @@ package mysql.labs;
 *
 *   Note: CRUD means (Create, Read, Update, Delete)
 *
-*       1.) D new flightsCRU
+*       1.) CRUD new flights
 *       2.) CRUD new passengers
 *       3.) Bonus: flex those JDBC muscles! How nice, clean, useful can you make this? Show us what you've got!
 *
@@ -28,9 +28,9 @@ package mysql.labs;
 
 public class Exercise_04 {
 
-    public static void main(String[] args) {
 
-//        Database database = new Database();
+
+
 
 
 
@@ -53,5 +53,3 @@ public class Exercise_04 {
 
          */
     }
-
-}
