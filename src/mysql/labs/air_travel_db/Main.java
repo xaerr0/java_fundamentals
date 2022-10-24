@@ -14,10 +14,10 @@ public class Main {
 
         Database database = new Database("airport");
 
-//        database.readAirport();
+        database.readAirport();
 //        database.insertAirport();
 //        database.updateAirport();
-        database.deleteAirport();
+//        database.deleteAirport();
 
 
 //        List<Passenger> passengers = database.getAllPassengers();
