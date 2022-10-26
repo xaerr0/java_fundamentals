@@ -1,21 +1,30 @@
 package mysql.labs.air_travel_db;
 
 public class Airport {
-    private int id;
+    private Long id;
     private String name;
     private String iata;
 
-    public Airport(int id, String name, String iata) {
+    public Airport(Long id, String name, String iata) {
         this.id = id;
         this.name = name;
         this.iata = iata;
     }
 
-    public int getId() {
+    public Airport(String name, String iata) {
+        this.name = name;
+        this.iata = iata;
+    }
+
+    public Airport() {
+
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -33,5 +42,10 @@ public class Airport {
 
     public void setIata(String iata) {
         this.iata = iata;
+    }
+
+    @Override
+    public String toString() {
+        return "id = " + id + ", name='" + name + "iata = "  + iata;
     }
 }

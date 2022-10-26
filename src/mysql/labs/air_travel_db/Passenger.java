@@ -1,7 +1,7 @@
 package mysql.labs.air_travel_db;
 
 public class Passenger {
-    private int id;
+    private Long id;
     private String first_name;
     private String last_name;
     private String address;
@@ -9,7 +9,7 @@ public class Passenger {
     private String state;
     private int points;
 
-    public Passenger(int id, String first_name, String last_name, String address, String city, String state, int points) {
+    public Passenger(Long id, String first_name, String last_name, String address, String city, String state, int points) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
@@ -19,11 +19,25 @@ public class Passenger {
         this.points = points;
     }
 
-    public int getId() {
+    public Passenger(String first_name, String last_name, String address, String city, String state, int points) {
+
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.points = points;
+    }
+
+    public Passenger() {
+
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -73,5 +87,11 @@ public class Passenger {
 
     public void setPoints(int points) {
         this.points = points;
+    }
+
+    @Override
+    public String toString() {
+        return "id = " + id + "," + " first name = " + first_name + "," + " last name = " + last_name + "," +
+               " address = " + address + "," + " city = " + city + "," + " state = " + state + "," + " points = " + points;
     }
 }
