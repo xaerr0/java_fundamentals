@@ -13,21 +13,30 @@ public class customStackTest {
         intStack.push(6);
         intStack.push(10);
         intStack.push(10);
+        intStack.push(15);
+        intStack.push(30);
+
         intStack.print();
-//        intStack.pop();
 //        intStack.resize(1);
+        intStack.pop();
+        intStack.pop();
+        intStack.pop();
+        intStack.pop();
+        intStack.pop();
 
 
-//        System.out.println(intStack.peekFirst());
-//        System.out.println(intStack.pop());
-//        System.out.println(intStack.pop());
-//        System.out.println(intStack.pop());
-//        System.out.println(intStack.isEmpty());
 
-//        System.out.println(intStack.size());
-//        System.out.println(intStack.peekLast());
+        System.out.println("----------------------------");
+        System.out.println(intStack.peekFirst());
+        System.out.println(intStack.pop());
+        System.out.println(intStack.pop());
+        System.out.println(intStack.pop());
+        System.out.println(intStack.isEmpty());
 
-//        intStack.print();
+        System.out.println(intStack.size());
+        System.out.println(intStack.peekLast());
+
+        intStack.print();
 
 
 

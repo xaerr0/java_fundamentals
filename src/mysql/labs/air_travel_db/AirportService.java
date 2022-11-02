@@ -58,7 +58,7 @@ public class AirportService {
 
             int rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("a new airport was inserted succesfully!");
+                System.out.println("a new airport was inserted successfully!");
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package labs_examples.datastructures.stack.labs;
 
+import java.util.Arrays;
+
 public class customStack<T> {
 
     private T[] data;
@@ -12,10 +14,10 @@ public class customStack<T> {
         top = -1;
     }
 
-    public customStack(T[] data) {
-        this.data = data;
-
-    }
+//    public customStack(T[] data) {
+//        this.data = data;
+//
+//    }
 
     public customStack(T[] data, int top) {
         this.data = data;
@@ -37,8 +39,9 @@ public class customStack<T> {
     }
 
     public void push(T value) {
-        if (top == data.length *.25) {
-            resize(data.length * 2);
+        if (top > data.length * .75) {
+            data = Arrays.copyOf(data, data.length * 2);
+//            data = Arrays.copyOf(tmp, tmp.length);
         }
         if (!isFull()) {
             top++;
@@ -50,7 +53,9 @@ public class customStack<T> {
     }
 
     public T pop() {
-
+        if (top <= data.length / 4) {
+            data = Arrays.copyOf(data, data.length / 2);
+        }
         if (isEmpty()) {
             throw new RuntimeException("Stack is empty!");
         }
@@ -61,7 +66,6 @@ public class customStack<T> {
     public T top() {
         if (isEmpty()) {
             System.out.println("Stack is empty");
-
         }
         return data[top];
     }
@@ -80,10 +84,10 @@ public class customStack<T> {
     }
 
     public int size() {
-        return top +1 ;
+        return top + 1;
     }
 
-    public void print(){
+    public void print() {
 
         for (T s : data) {
             System.out.println(s);
@@ -91,18 +95,17 @@ public class customStack<T> {
     }
 
     //@TODO HALP with #2 and #3
-    public void resize(int capacity) {
-
-        T[] old = data;
-        data = (T[]) new Object[old.length * capacity];
-        for (int i = 0; i < old.length; i++) {
-
-            old[i] = data[i];
-            }
-
-        }
+    public void resize() {
 
 
-
+//        T[] old = data;
+//        data = (T[]) new Object[old.length * capacity];
+//        for (int i = 0; i < old.length; i++) {
+//
+//            old[i] = data[i];
+//            }
 
     }
+
+
+}

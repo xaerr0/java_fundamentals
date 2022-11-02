@@ -1,38 +1,10 @@
 package labs_examples.datastructures.linkedlist.labs;
 
 
-import java.util.Stack;
-
 public class CustomLinkedList<T> {
 
     private Node head;
 
-
-    public static void main(String[] args) {
-        CustomLinkedList<String> customLL = new CustomLinkedList<>();
-
-        customLL.addFirst("Test");
-        customLL.addFirst("for");
-        customLL.addFirst("custom");
-        customLL.addLast("Linked");
-        customLL.addLast("List");
-        customLL.print();
-//        System.out.println(customLL.size());
-//
-//        boolean wordCheck = customLL.contains("Linked");
-//        System.out.println("Does the list contain the word 'Linked'? = " + wordCheck);
-//
-//        customLL.popFront();
-//        customLL.print();
-//
-//        customLL.remove("for");
-//        customLL.print();
-//
-//        System.out.println();
-//        customLL.getNode("Linked");
-
-
-    }
 
     public CustomLinkedList(T... data) {
 
@@ -46,11 +18,41 @@ public class CustomLinkedList<T> {
 
     }
 
+    public static void main(String[] args) {
+        CustomLinkedList<String> customLL = new CustomLinkedList<>();
+
+        customLL.addFirst("Test");
+        customLL.addFirst("for");
+        customLL.addFirst("custom");
+        customLL.addLast("Linked");
+        customLL.addLast("List");
+        customLL.addFirst("AddFirst");
+
+        customLL.print();
+        System.out.println(customLL.size());
+//
+        boolean wordCheck = customLL.contains("Linked");
+        System.out.println("Does the list contain the word 'Linked'? = " + wordCheck);
+        boolean wordCheck2 = customLL.contains("Candy");
+        System.out.println("wordcheck for Candy = " + wordCheck2);
+
+        customLL.popFront();
+        customLL.print();
+
+        customLL.remove("for");
+        customLL.print();
+
+        System.out.println();
+
+
+
+    }
+
     private void addFirst(T data) {
         if (isEmpty()) {
-            head = new Node(data);
+            head = new Node<>(data);
         } else {
-            Node newNode = new Node(data);
+            Node<T> newNode = new Node<>(data);
             newNode.next = head;
             head = newNode;
         }
@@ -81,33 +83,16 @@ public class CustomLinkedList<T> {
 
     public T get(int index) {
 
-            int count = 0;
+        int count = 0;
 
-            Node iterator = head;
+        Node iterator = head;
 
-            while (count != index) {
-                iterator = iterator.next;
-                count++;
-            }
-            return (T) iterator.data;
+        while (count != index) {
+            iterator = iterator.next;
+            count++;
         }
-
-        //@TODO HALP!
-        private boolean getNode(T data) {
-            if (isEmpty()) {
-                return false;
-            }
-            Node iterator = head;
-            int index = 0;
-            while (iterator != null) {
-                if (iterator.data == data) {
-                    return true;
-                }
-                index++;
-            }
-            return false;
-        }
-
+        return (T) iterator.data;
+    }
 
     private void remove(T data) {
         // list is empty with nothing to delete
@@ -178,7 +163,7 @@ public class CustomLinkedList<T> {
         return count;
     }
 
-    private boolean contains (T data) {
+    private boolean contains(T data) {
         if (isEmpty()) {
             return false;
         }
@@ -191,7 +176,7 @@ public class CustomLinkedList<T> {
             iterator = iterator.next;
 
             if (iterator.data == data) {
-                return  true;
+                return true;
 
             }
         }

@@ -32,11 +32,9 @@ public class DoublyLinkedList<T> {
     private void addFirst(T data) {
 
         Node newNode = new Node(data);
+        head.previous = newNode;
         newNode.next = head;
         newNode.previous = null;
-        if (isEmpty()) {
-            head.previous = newNode;
-        }
         head = newNode;
     }
 
