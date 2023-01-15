@@ -62,7 +62,6 @@ public class AirportService {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-
         }
         return airport;
     }
@@ -100,14 +99,11 @@ public class AirportService {
                 System.out.println("An airport was deleted successfully!");
                 return true;
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
-
     }
-
 
     public List<Airport> mapToAirport(ResultSet resultSet) throws SQLException {
         List<Airport> airportList = new ArrayList<>();
@@ -122,6 +118,4 @@ public class AirportService {
         }
         return airportList;
     }
-
-
 }
